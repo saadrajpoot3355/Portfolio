@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, ArrowRight, Download, MapPin, Github } from 'lucide-react';
+import { Sparkles, ArrowRight, Download, MapPin, Github, Linkedin } from 'lucide-react';
 
 export default function Hero() {
   const [transformStyle, setTransformStyle] = useState({
@@ -53,15 +53,15 @@ export default function Hero() {
         </p>
 
         {/* Display Headline + Avatar */}
-        <div className="relative flex w-full flex-col items-center justify-center py-2 my-auto select-none">
+        <div className="relative flex w-full flex-col items-center justify-center py-2 my-auto select-none overflow-hidden">
           <h1 className="sr-only">Muhammad Saad Atique — Robotics Specialist & Web Developer</h1>
           
-          {/* Main Giant Headline */}
+          {/* Main Giant Headline - Single Line Name */}
           <div className="flex flex-col items-center justify-center text-center font-display font-black leading-[0.95] tracking-tight uppercase px-2 w-full">
             <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl text-slate-400">
               Hi i'm
             </span>
-            <span className="mt-1 text-2xl sm:text-5xl md:text-6xl lg:text-7xl text-white max-w-4xl break-words">
+            <span className="mt-1.5 text-[5.2vw] sm:text-5xl md:text-6xl lg:text-7xl text-white whitespace-nowrap tracking-tight">
               Muhammad Saad Atique
             </span>
           </div>
@@ -133,6 +133,15 @@ export default function Hero() {
                   className="inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 active:scale-95"
                 >
                   <Github className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/muhammad-saad-atique-104636232/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="LinkedIn Profile"
+                  className="inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 active:scale-95"
+                >
+                  <Linkedin className="h-4 w-4" />
                 </a>
               </div>
             </div>

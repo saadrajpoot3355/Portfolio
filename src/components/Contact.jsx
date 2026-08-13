@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, MapPin, Send, MessageSquare, CheckCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, CheckCircle } from 'lucide-react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -68,15 +68,23 @@ export default function Contact() {
                   <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">GitHub Profile</p>
-                  <div className="mt-1 flex flex-wrap items-center gap-3">
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">Social Profiles</p>
+                  <div className="mt-1.5 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
                     <a
                       href="https://github.com/saadrajpoot3355"
                       target="_blank"
                       rel="noreferrer noopener"
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:underline"
                     >
-                      <Github className="h-3.5 w-3.5" /> https://github.com/saadrajpoot3355
+                      <Github className="h-3.5 w-3.5" /> GitHub Profile
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/muhammad-saad-atique-104636232/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:underline"
+                    >
+                      <Linkedin className="h-3.5 w-3.5" /> LinkedIn Profile
                     </a>
                   </div>
                 </div>
