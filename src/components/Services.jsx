@@ -30,41 +30,41 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="border-b border-white/10 bg-[#080a11] py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="services" className="border-b border-white/10 bg-[#080a11] py-12 sm:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         <div>
           <p className="section-eyebrow">Services</p>
-          <h2 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
             Specialized Services
           </h2>
-          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-slate-400">
+          <p className="mt-3 sm:mt-4 max-w-xl text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-400">
             End-to-end solutions spanning hardware engineering, embedded microcontrollers, and full-stack web applications.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <div 
                 key={service.title}
-                className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-[#0c0e17] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-2xl hover:shadow-blue-600/10"
+                className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] p-5 sm:p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-2xl hover:shadow-blue-600/10"
               >
                 <div>
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/30">
-                    <Icon className="h-7 w-7" />
+                  <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/30">
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
                   </div>
 
-                  <h3 className="mt-6 font-display font-bold text-white text-xl group-hover:text-blue-400 transition-colors">
+                  <h3 className="mt-4 sm:mt-6 font-display font-bold text-white text-lg sm:text-xl group-hover:text-blue-400 transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed text-slate-300">
                     {service.description}
                   </p>
 
-                  <ul className="mt-6 space-y-2 text-xs text-slate-300">
+                  <ul className="mt-5 space-y-2 text-xs text-slate-300">
                     {service.points.map((p, idx) => (
                       <li key={idx} className="flex items-center gap-2">
                         <ShieldCheck className="h-3.5 w-3.5 text-blue-400 shrink-0" />
@@ -74,7 +74,7 @@ export default function Services() {
                   </ul>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="mt-6 sm:mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
                   <a
                     href="#contact"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-white transition-colors"

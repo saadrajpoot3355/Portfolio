@@ -12,17 +12,17 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="border-b border-white/10 bg-[#0a0c14] py-24 lg:py-32 relative">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-8">
+    <section id="about" className="border-b border-white/10 bg-[#0a0c14] py-12 sm:py-16 lg:py-24 relative">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:grid-cols-2 lg:items-center lg:gap-16 px-4 sm:px-6 lg:px-8">
         
         {/* Left Bio Column */}
         <div>
           <p className="section-eyebrow">About</p>
-          <h2 className="mt-4 font-display text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black leading-[1.15] tracking-tight text-white">
             Blending physical robotics with modern web engineering
           </h2>
 
-          <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-slate-300">
+          <div className="mt-4 sm:mt-6 space-y-4 text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-300">
             <p>
               <strong>Muhammad Saad Atique (Saad Rajpoot)</strong> is an experienced Robotics Specialist, Embedded Developer, and Web Developer based in Pakistan, collaborating with clients internationally since 2022.
             </p>
@@ -35,7 +35,7 @@ export default function About() {
           </div>
 
           {/* Badges */}
-          <ul className="mt-7 flex flex-wrap gap-2">
+          <ul className="mt-6 flex flex-wrap gap-2">
             {badges.map((badge) => (
               <li key={badge} className="badge">
                 {badge}
@@ -44,19 +44,19 @@ export default function About() {
           </ul>
 
           {/* Featured Highlights Card */}
-          <div className="mt-10 rounded-2xl border border-white/10 bg-[#0f121d] p-6 shadow-xl">
+          <div className="mt-8 sm:mt-10 rounded-2xl border border-white/10 bg-[#0f121d] p-5 sm:p-6 shadow-xl">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/20 text-blue-400">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600/20 text-blue-400">
                 <GraduationCap className="h-5 w-5" />
               </div>
               <div>
                 <p className="section-eyebrow">Education</p>
-                <h3 className="font-display text-lg font-bold text-white">FSc in Computer Science (ICS)</h3>
+                <h3 className="font-display text-base sm:text-lg font-bold text-white">FSc in Computer Science (ICS)</h3>
               </div>
             </div>
-            <p className="mt-2 text-sm text-slate-400">Punjab Group of Colleges (Feb 2022 - Jun 2024)</p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-blue-400">Completed with Distinction</p>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300">
+            <p className="mt-2 text-xs sm:text-sm text-slate-400">Punjab Group of Colleges (Feb 2022 - Jun 2024)</p>
+            <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-blue-400">Completed with Distinction</p>
+            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-300">
               Intermediate studies in computer science, establishing deep foundational expertise in programming, data structures, and computer organization.
             </p>
           </div>
@@ -64,30 +64,30 @@ export default function About() {
 
         {/* Right Graphical Visual Column */}
         <div>
-          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-4 sm:p-8 backdrop-blur-sm">
-            <div role="img" aria-label="Cloud Attendance Hardware System" className="relative h-[320px] w-full overflow-hidden rounded-2xl bg-[#080a11] p-4 sm:h-[380px] lg:h-[420px] flex flex-col items-center justify-center border border-white/10">
+          <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] p-3 sm:p-6 backdrop-blur-sm">
+            <div role="img" aria-label="Cloud Attendance Hardware System" className="relative min-h-[260px] xs:min-h-[300px] sm:min-h-[360px] lg:min-h-[400px] w-full overflow-hidden rounded-xl sm:rounded-2xl bg-[#080a11] p-3 sm:p-4 flex flex-col items-center justify-between border border-white/10">
               
               {/* Circuit Grid Backdrop */}
               <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] opacity-15"></div>
               
-              <div className="relative z-10 flex flex-col items-center gap-3 text-center h-full w-full justify-between py-2">
-                <div className="relative overflow-hidden rounded-xl border border-white/20 shadow-2xl bg-black/40 p-2 flex-1 flex items-center justify-center">
+              <div className="relative z-10 flex flex-col items-center gap-3 text-center h-full w-full justify-between py-1">
+                <div className="relative overflow-hidden rounded-xl border border-white/20 shadow-2xl bg-black/40 p-2 flex-1 flex items-center justify-center w-full">
                   <img 
                     src="/images/cloud_attendance_robot.png" 
                     alt="Cloud Attendance Hardware System" 
-                    className="max-h-[260px] w-auto object-contain rounded-lg shadow-xl"
+                    className="max-h-[200px] xs:max-h-[240px] sm:max-h-[280px] w-auto max-w-full object-contain rounded-lg shadow-xl"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <h4 className="font-display text-base font-bold text-white tracking-wide">Saad Tech Hardware & Embedded Engine</h4>
-                  <p className="text-xs text-slate-400 max-w-sm">
+                  <h4 className="font-display text-sm sm:text-base font-bold text-white tracking-wide">Saad Tech Hardware & Embedded Engine</h4>
+                  <p className="text-[11px] sm:text-xs text-slate-400 max-w-sm">
                     Cloud Attendance System with fingerprint scanner, microcontroller circuit, & live web sync.
                   </p>
                 </div>
               </div>
             </div>
-            <p className="mt-4 text-center text-xs text-slate-400">
+            <p className="mt-3 sm:mt-4 text-center text-[11px] sm:text-xs text-slate-400 px-2">
               Physical hardware integration — Microcontroller circuit, biometric sensors, & real-time embedded control systems.
             </p>
           </div>

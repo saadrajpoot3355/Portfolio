@@ -66,7 +66,7 @@ export default function Skills() {
       ]
     },
     {
-      title: 'Development & Professional Workflow',
+      title: 'Development & Workflow',
       icon: Wrench,
       skills: [
         'Git & GitHub Version Control',
@@ -79,39 +79,39 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="border-b border-white/10 bg-[#0a0c14] py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="skills" className="border-b border-white/10 bg-[#0a0c14] py-12 sm:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         <div>
           <p className="section-eyebrow">Skills</p>
-          <h2 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
             Tools and Techniques
           </h2>
-          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-slate-400">
+          <p className="mt-3 sm:mt-4 max-w-xl text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-400">
             Comprehensive hardware, software, microcontrollers, and web engineering skillsets.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category) => {
             const Icon = category.icon;
             return (
               <div 
                 key={category.title}
-                className="h-full rounded-2xl border border-white/10 bg-[#0c0e17] p-6 transition-all duration-300 hover:border-white/25 hover:shadow-xl hover:shadow-blue-600/5"
+                className="h-full rounded-2xl border border-white/10 bg-[#0c0e17] p-5 sm:p-6 transition-all duration-300 hover:border-white/25 hover:shadow-xl hover:shadow-blue-600/5"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400">
                     <Icon className="h-4 w-4" />
                   </div>
-                  <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white">
+                  <h3 className="font-display text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-white">
                     {category.title}
                   </h3>
                 </div>
 
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <ul className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 sm:gap-2">
                   {category.skills.map((skill) => (
-                    <li key={skill} className="badge">
+                    <li key={skill} className="badge text-[11px] sm:text-xs">
                       {skill}
                     </li>
                   ))}

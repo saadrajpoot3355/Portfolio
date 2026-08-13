@@ -8,13 +8,26 @@
     --card-bg: #0c0e17;
     --border-color: rgba(255, 255, 255, 0.1);
   }
-}
 
-body {
-  background-color: #0a0c14;
-  color: #f8fafc;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #0a0c14;
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 320px;
+  }
+
+  /* Prevent body scroll when mobile menu drawer is open */
+  body.mobile-menu-active {
+    overflow: hidden;
+  }
 }
 
 /* Section Eyebrow Styling matching Reference Site */
@@ -34,7 +47,7 @@ body {
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.35rem 0.85rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -42,6 +55,9 @@ body {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   transition: all 0.2s ease;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .badge:hover {
@@ -107,9 +123,25 @@ body {
   animation: pulseGlow 5s ease-in-out infinite;
 }
 
+/* Keyframe for smooth modal / drawer fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #080a11;
