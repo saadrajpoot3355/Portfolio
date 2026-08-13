@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Production build output
+dist/
+
+# Logs & temp files
+*.log
+.DS_Store
+
+# Temporary / extraction scripts & raw data
+gamma_*.txt
+gamma_*.html
+saad_portfolio_extracted.txt
+scrape_gamma.js
+site_test.html
