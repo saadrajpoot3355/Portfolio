@@ -1,0 +1,190 @@
+Muhammad Saad Atique
+
+Try Gamma
+Present
+PP
+SAAD RAJPOOT
+
+Robotics Specialist | Web Developer | Design, Coding & Implementation Expert
+
+Get in Touch
+View LinkedIn
+Professional Overview
+
+Experienced robotics specialist and web developer. Since 2022, I've collaborated with clients and companies internationally, delivering innovative solutions in robotics and web development. My expertise spans Arduino, ESP8266/32 microcontrollers, responsive web design, and Microsoft technologies.
+
+Core Expertise
+Robotics Design & Implementation
+Web Development
+Arduino & ESP Projects
+Microsoft Specialist
+Meet SAAD RAJPOOT: Your ROBOTICS  & WEB-DEVELOPMENT Solutions Partner
+
+I am Saad Rajpoot, a dedicated freelance Business Developer, Robotics Expert, and Web Consultant. I specialize in full-stack WordPress website custom development, including advanced plugin and theme creation.
+
+As a robotics enthusiast, I am passionate about designing and building intelligent machines that blend creativity, engineering, and innovation. With expertise in sensors, microcontrollers, and automation systems, I create efficient robots for real-world applications. I am committed to advancing technology through problem-solving, teamwork, and continuous learning in robotics and AI integration.
+
+A certified Microsoft Office Specialist, I leverage advanced skills in Word, Excel, and Access to build powerful, integrated business tools. I thrive on combining cutting-edge web technology with essential office productivity to deliver holistic solutions.
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+Technical Skillset
+Robotics Engineering
+
+Expert in designing and implementing robotic systems using Arduino and ESP8266/32 microcontrollers for diverse applications.
+
+Web Development
+
+Intermediate proficiency in creating responsive, modern websites with clean code and user-friendly interfaces.
+
+Microsoft Technologies
+
+Specialized knowledge in Microsoft Word and other Microsoft suite applications for professional documentation.
+
+Professional Experience
+1
+Robotics Specialist
+
+Saad Tech | February 2023 - Present
+
+Leading robotics projects for international and local clients. Specializing in Arduino and ESP8266/32 implementations, delivering innovative solutions across multiple industries and countries.
+
+2
+Web-Developer
+
+Saad Tech | August 2024 - Present
+
+I am a professional WordPress Web Developer specializing in creating responsive, attractive, and user-friendly websites. I use themes, plugins, and builders like Elementor to design modern sites without coding. I focus on SEO optimization, performance, and helping clients build a strong and effective online presence.
+
+3
+Embedded  developer
+
+Pluttox Software House | 2024-2025
+
+Embedded Systems Developer at Pluttox Software House, where I design firmware for microcontrollers in robotics and IoT projects. Proficient in C/C++, RTOS, UART/SPI/I2C, and ADC, I optimize for real-time performance, power efficiency, and reliability—from Arduino prototypes to MISRA-compliant production code.
+
+
+
+
+Robotics Portfolio
+CLOUD BIOMETRIC ATTENDANCE SYSTEM
+
+The reason or motivation for doing this project is that any employee or student would have their attendance registered If an employee or a student was required to attend the register, then the rejected employer-students used to attend on their own.
+
+Benefits
+Web base Interface.
+No external interference.
+Specific IP Address.
+Biometric data is highly secure.
+Administrators can monitor attendance in real-time.
+
+
+
+
+Robotics Portfolio
+Sumo Wrestling  Car
+
+A Sumo Wrestling Car is an autonomous robot designed to battle in a ring, using sensors and high-torque motors to detect and push opponents out. Built on an ESP32 and metal chassis, it showcases skills in robotics, electronics, and programming, emphasizing intelligent control, sensor fusion, and mechanical design integration.
+
+Benefits
+Autonomous Control
+Sensor Integration
+High Torque Power
+Smart Navigation
+Competitive Robotics
+1.
+Global Project Experience
+3+
+Years Experience
+
+Active in robotics and web development since 2022
+
+99+
+Projects Completed
+
+Successful delivery of local and international projects
+
+5+
+Countries Served
+
+Collaborated with clients across multiple nations
+
+Educational Background
+FSc in ICS
+
+Punjab Group of Colleges
+
+February 2022 - June 2024
+
+Intermediate studies in Computer Science, building foundational knowledge in programming and technology.
+
+Matriculation in Computer Science
+
+D.P.S & College Okara, Pakistan
+
+March 2010 - February 2022
+
+Comprehensive computer science education establishing core technical competencies and problem-solving skills.
+
+Web Development Services
+Responsive Design
+
+Creating websites that adapt seamlessly across all devices, ensuring optimal user experience on desktop, tablet, and mobile platforms.
+
+Modern Interfaces
+
+Designing clean, intuitive user interfaces with contemporary aesthetics and smooth navigation for enhanced engagement.
+
+Clean Code
+
+Writing maintainable, efficient code following industry best practices for scalable and reliable web solutions.
+
+Web Development Portfolio
+
+E-Commerce Website 
+
+Technical Specification Accuracy Precision is everything. Your product pages must include detailed data tables, pinout diagrams, and downloadable PDF datasheets. Tech-savvy customers buy based on specs (voltage, compatibility, dimensions), not just photos.
+Parametric Search & Filtering Electronics inventory is often vast and similar. Users need to filter by technical variables—like "Input Voltage" or "Microcontroller Type"—rather than just price or brand, to find the exact component for their project.
+Project-Based Bundling Increase your average order value by grouping related items. For example, if someone is buying a motor driver, suggest the specific motors and jumper wires that fit it. "Starter Kits" are also high-performers for students and hobbyists.
+Real-Time Inventory Management In the electronics world, "Out of Stock" can stall a build for weeks. Use a clean, real-time stock indicator so customers know exactly how many units are available before they commit to a design.
+Why Choose Me
+International Experience
+
+Proven track record working with clients from different countries, understanding diverse requirements and delivering culturally relevant solutions.
+
+Technical Versatility
+
+Dual expertise in robotics and web development allows for comprehensive project solutions spanning hardware and software.
+
+Reliable Delivery
+
+Consistent project completion with quality results, meeting deadlines and exceeding client expectations since 2022.
+
+Let's Build Something Amazing
+Ready to Collaborate?
+
+Whether you need robotics solutions, web development services, or technical consultation, I'm here to help bring your ideas to life. With experience serving international clients and a passion for innovation, let's create something exceptional together.
+
+Email Me
+Connect on LinkedIn
+Made with
+
+Gamma turns ideas into decks in minutes. Loved by more than 70 million users.
+
+Start for free
+
+Gamma

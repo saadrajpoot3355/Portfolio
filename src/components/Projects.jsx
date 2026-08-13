@@ -1,0 +1,313 @@
+import React, { useState } from 'react';
+import { ExternalLink, Github, ArrowUpRight, Cpu, Wifi, Bot, ShoppingCart, Layers, Code, Check } from 'lucide-react';
+
+export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const projects = [
+    {
+      id: '01',
+      title: 'Expert Painting Services Web Application',
+      category: 'Web Development & UI/UX',
+      image: '/images/project_expert_painting.png',
+      description: 'A responsive digital platform tailored for home painting services with booking integration, service catalogs (interior & exterior), price estimation features, and multi-device preview UI.',
+      highlights: 'Multi-Device Responsive Design & Quick Booking',
+      tags: ['React / Web', 'Responsive UI', 'Service Booking', 'Tailwind CSS', 'UX Design'],
+      icon: Code,
+      color: 'from-blue-600 to-indigo-600',
+      details: [
+        'Responsive layout optimized across desktop, tablet, and smartphone display standards.',
+        'Interactive booking form enabling instant consultation requests.',
+        'High-converting landing page showcasing specialized interior and exterior painting services.'
+      ],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://github.com'
+    },
+    {
+      id: '02',
+      title: 'Zameen Experts Executive PA Management System',
+      category: 'Enterprise SaaS & Web Dashboard',
+      image: '/images/project_zameen_experts.png',
+      description: 'An executive management dashboard system developed for Zameen Experts featuring CEO schedule tracking, meeting outcomes, expense approvals, daily briefs, analytics, and role previews.',
+      highlights: 'Executive Dashboard & Role-Based Access Control',
+      tags: ['Dashboard Web App', 'Executive System', 'Expense Approval', 'Schedule Tracker', 'Analytics'],
+      icon: Layers,
+      color: 'from-amber-500 to-orange-600',
+      details: [
+        'Role preview selector (CEO, PA, HR, Admin) with granular permission management.',
+        'Central overview widgets for meetings, pending tasks, expense logs, and notifications.',
+        'Automated daily brief generation and CEO availability status tracking.'
+      ],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://github.com'
+    },
+    {
+      id: '03',
+      title: 'E-Bazzar Electronics & Hardware E-Commerce',
+      category: 'E-Commerce & Web Development',
+      image: '/images/project_ebazzar.png',
+      description: 'A full-featured electronic components storefront built for hardware enthusiasts, engineers, and DIY creators featuring product categories, instant search, component specs, and secure checkout.',
+      highlights: 'Electronics Catalog & Fast Component Search',
+      tags: ['E-Commerce', 'Electronics Store', 'Parametric Search', 'Product Spec Cards', 'Web App'],
+      icon: ShoppingCart,
+      color: 'from-cyan-600 to-blue-600',
+      details: [
+        'Dynamic component search filtering switches, modules, microcontrollers, and sensors.',
+        'Detailed product view cards complete with voltage ratings and pinout references.',
+        'Optimized cart and checkout workflow for fast hardware procurement.'
+      ],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://github.com'
+    },
+    {
+      id: '04',
+      title: 'Sumo Beast Combat Robot',
+      category: 'Robotics & Hardware Engineering',
+      image: '/images/robot_sumo_beast.png',
+      description: 'A high-torque 6-wheel-drive autonomous combat robot engineered for sumo battles with custom ramp blade, high-traction off-road tires, QR code telemetry, and high-response motor controllers.',
+      highlights: '6WD High-Torque Combat Chassis & Ramp Blade',
+      tags: ['Autonomous Robotics', '6WD Motor Drive', 'Combat Robot', 'ESP32/Arduino', 'Sensor Fusion'],
+      icon: Bot,
+      color: 'from-purple-600 to-indigo-600',
+      details: [
+        'Custom 6-wheel drive layout with high-friction all-terrain rubber tires.',
+        'Reinforced steel front wedge scoop blade designed for wrestling opponent robots.',
+        'ESP32 microcontroller motor control loop with rapid direction inversion.'
+      ],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://github.com'
+    },
+    {
+      id: '05',
+      title: 'Simba 2.0 Autonomous Combat & Telemetry Robot',
+      category: 'Robotics & Microcontrollers',
+      image: '/images/robot_simba_2_grid.jpg',
+      description: 'A dual-motor combat robot hardware build featuring customized chassis, heavy-duty lead-acid power pack, motor driver bridges, custom front scoop shield, and telemetry modules.',
+      highlights: 'Custom Dual-Motor Bridge & Heavy Power Circuit',
+      tags: ['Robotics Hardware', 'Motor Drivers', 'Chassis Design', 'Embedded Circuits', 'Power Electronics'],
+      icon: Cpu,
+      color: 'from-red-600 to-amber-600',
+      details: [
+        'Custom high-capacity power distribution wiring with heavy-duty rechargeable battery.',
+        'Integrated multi-layer motor driver board for precise speed and torque steering.',
+        'Custom painted front scoop armor shield and top-mounted microcontroller bay.'
+      ],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://github.com'
+    },
+    {
+      id: '06',
+      title: 'PochetRide Vehicle Rental & Fleet Management',
+      category: 'Web Development & Booking Systems',
+      image: '/images/project_pochet_ride.png',
+      description: 'A car rental booking portal designed for eco-friendly vehicle fleets in NYC & Scarsdale, featuring vehicle filters, location pickup/dropoff selector, rates, and instant reservation processing.',
+      highlights: 'Eco-Friendly Fleet Booking & Location Selector',
+      tags: ['Car Rental System', 'Online Booking', 'Fleet Management', 'Responsive Portal', 'Web UI'],
+      icon: Code,
+      color: 'from-rose-600 to-red-600',
+      details: [
+        'Interactive vehicle reservation wizard with location, drop-off date, and model selection.',
+        'Clean eco-vehicle showcase highlighting hybrid/electric rentals.',
+        'Mobile-friendly responsive UI for seamless roadside rental booking.'
+      ],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://github.com'
+    },
+    {
+      id: '07',
+      title: 'Mtech Pro Stock Inventory & Stock Management',
+      category: 'Software & SaaS Platform',
+      image: '/images/project_mtech_pro_stock.png',
+      description: 'An all-in-one SaaS inventory and stock tracking platform created for businesses featuring sales overview dashboards, stock alerts, profit/loss reporting, multi-user admin access, and export tools.',
+      highlights: 'Smart Analytics Dashboard & Stock Tracking',
+      tags: ['SaaS Dashboard', 'Inventory Management', 'Profit Reports', 'PDF/Excel Export', 'Multi-User'],
+      icon: Layers,
+      color: 'from-blue-500 to-teal-500',
+      details: [
+        'Dashboard overview with real-time stock levels, total sales, and profit margin graphs.',
+        'Low-stock warning system and detailed activity transaction history.',
+        'PDF and Excel data export features for financial and inventory auditing.'
+      ],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://github.com'
+    }
+  ];
+
+  return (
+    <section id="projects" className="border-b border-white/10 bg-[#080a11] py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        
+        {/* Header */}
+        <div>
+          <p className="section-eyebrow">Projects</p>
+          <h2 className="mt-4 font-display text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+            Selected Work
+          </h2>
+          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-slate-400">
+            Featured robotics engineering, custom web applications, e-commerce platforms, and inventory SaaS management systems.
+          </p>
+        </div>
+
+        {/* Featured Big Projects Stack (01, 02, 03) */}
+        <div className="mt-12 space-y-8">
+          {projects.slice(0, 3).map((project) => {
+            const Icon = project.icon;
+            return (
+              <article 
+                key={project.id}
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_24px_60px_-30px_rgba(59,130,246,0.3)] lg:flex-row"
+              >
+                {/* Visual Cover Container */}
+                <div className="relative flex items-center justify-center overflow-hidden bg-[#070910] p-4 sm:p-6 lg:w-2/5 min-h-[260px] lg:min-h-[340px]">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.18),transparent_55%)]"></div>
+                  
+                  {/* Visual Project Image / Graphic */}
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="relative z-10 w-full h-auto max-h-[280px] object-contain rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="relative z-10 flex flex-col items-center gap-3 text-center transition-transform duration-700 group-hover:scale-105">
+                      <div className={`flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-tr ${project.color} shadow-2xl shadow-blue-500/20`}>
+                        <Icon className="h-10 w-10 text-white" />
+                      </div>
+                      <span className="font-display text-sm font-bold tracking-wider text-slate-300 uppercase">
+                        {project.category}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Counter Badge Number */}
+                  <span className="absolute left-4 top-4 z-20 rounded-full bg-white/10 border border-white/15 px-3 py-1 font-display text-xs font-bold tracking-[0.14em] text-white backdrop-blur">
+                    {project.id}
+                  </span>
+                </div>
+
+                {/* Content Details */}
+                <div className="flex flex-1 flex-col p-6 sm:p-8 lg:p-10">
+                  <h3 className="font-display font-bold tracking-tight text-white text-2xl lg:text-3xl group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                    {project.description}
+                  </p>
+
+                  <p className="mt-4 inline-flex w-fit rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-400">
+                    ✨ {project.highlights}
+                  </p>
+
+                  {/* Tags */}
+                  <ul className="mt-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <li key={tag} className="badge">
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Buttons */}
+                  <div className="mt-7 flex flex-wrap items-center gap-3 pt-1">
+                    <button 
+                      onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90 shadow-md shadow-blue-600/30"
+                    >
+                      {selectedProject === project.id ? 'Hide Details' : 'View Specifications'}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </button>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 px-4 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-white/10"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      GitHub Project
+                    </a>
+                  </div>
+
+                  {/* Expanded Specifications Drawer */}
+                  {selectedProject === project.id && (
+                    <div className="mt-6 pt-6 border-t border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
+                      <p className="font-display font-bold uppercase tracking-wider text-blue-400 text-[11px]">Technical Details & Architecture:</p>
+                      <ul className="space-y-1.5">
+                        {project.details.map((detail, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <Check className="h-3.5 w-3.5 text-blue-400 shrink-0 mt-0.5" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Secondary Project Cards Grid (04, 05) */}
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {projects.slice(3).map((project) => {
+            const Icon = project.icon;
+            return (
+              <article 
+                key={project.id}
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:-translate-y-1 hover:border-white/25 p-6 sm:p-8"
+              >
+                {project.image && (
+                  <div className="relative mb-5 flex justify-center overflow-hidden rounded-2xl bg-[#070910] p-4">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="h-44 w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-white/10 border border-white/15 px-3 py-1 font-display text-xs font-bold tracking-[0.14em] text-white">
+                    {project.id}
+                  </span>
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr ${project.color}`}>
+                    <Icon className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+
+                <h3 className="mt-5 font-display font-bold tracking-tight text-white text-xl group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                  {project.description}
+                </p>
+
+                <ul className="mt-5 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <li key={tag} className="badge text-[11px]">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:underline"
+                  >
+                    View Project <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}
