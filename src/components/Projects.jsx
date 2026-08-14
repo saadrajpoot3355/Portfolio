@@ -114,7 +114,7 @@ export default function Projects() {
         'Central overview widgets for meetings, pending tasks, expense logs, and notifications.',
         'Automated daily brief generation and CEO availability status tracking.'
       ],
-      githubUrl: 'https://github.com/saadrajpoot3355'
+      githubUrl: 'https://github.com/saadrajpoot3355/-PA-Management-System'
     },
     {
       id: '07',
@@ -132,7 +132,7 @@ export default function Projects() {
         'Low-stock warning system and detailed activity transaction history.',
         'PDF and Excel data export features for financial and inventory auditing.'
       ],
-      githubUrl: 'https://github.com/saadrajpoot3355'
+      githubUrl: 'https://github.com/saadrajpoot3355/Mtech-Pro-Stock'
     }
   ];
 

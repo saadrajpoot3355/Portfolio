@@ -5,7 +5,7 @@ export default function About() {
   const badges = [
     'Robotics Design',
     'Arduino & ESP32',
-    'Embedded C / RTOS',
+    'Embedded C / RTOS / ROS',
     'Full-Stack Web Dev',
     'WordPress Themes & Plugins',
     'Microsoft Office Specialist',
@@ -33,7 +33,7 @@ export default function About() {
                 sensors, IoT protocols, and embedded firmware</strong> with modern web
               development and custom WordPress solutions. He has developed practical
               projects including Sumo Wrestling robots, Robo Soccer, line-following
-              systems, and other IoT and embedded applications.
+              systems, Cloud Based Biometric Attendance System and other IoT and embedded applications.
             </p>
             <p>
               Alongside hardware and embedded development, Saad creates modern, responsive,
@@ -41,7 +41,7 @@ export default function About() {
               experience in WordPress, custom themes, plugins, website optimization, and
               performance-focused development. He continues to expand his expertise across
               <strong>Artificial Intelligence, Robotics, Embedded Systems, embedded frameworks,
-                and ROS</strong>, combining hardware and software to build intelligent and
+                RTOS and ROS</strong>, combining hardware and software to build intelligent and
               practical technology solutions.
             </p>
           </div>

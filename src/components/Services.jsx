@@ -9,18 +9,20 @@ export default function Services() {
       description: 'Creating high-performance, responsive websites, custom WordPress themes & plugins, and parametric e-commerce sites tuned for maximum speed, SEO, and user conversion.',
       points: ['Custom WordPress Theme & Plugin Dev', 'Responsive Mobile-First Interfaces', 'Page Speed & Technical SEO Tuning', 'E-Commerce & Parametric Filters']
     },
-    {
-      title: 'Robotics Design & Hardware Prototyping',
-      icon: Bot,
-      description: 'Designing intelligent robotic systems, autonomous Sumo cars, obstacle avoidance vehicles, and custom biometric IoT hardware with precision circuit wiring.',
-      points: ['Arduino & ESP8266/ESP32 Microcontrollers', 'Sensor Fusion (Ultrasonic, IR, Biometric)', 'Autonomous Combat & Navigation Robots', 'Custom PCB & Breadboard Prototypes']
-    },
+
     {
       title: 'Embedded Firmware & Microcontroller Programming',
       icon: Cpu,
       description: 'Writing low-latency, energy-efficient C/C++ and RTOS firmware for microcontroller hardware with protocol integrations (UART, SPI, I2C, ADC).',
       points: ['MISRA-Compliant Production Firmware', 'RTOS Real-Time Event Loops', 'Low Power Sleep State Management', 'Hardware Debugging & Testing']
     },
+    {
+      title: 'Robotics Design & Hardware Prototyping',
+      icon: Bot,
+      description: 'Designing intelligent robotic systems, autonomous Sumo cars, obstacle avoidance vehicles, and custom biometric IoT hardware with precision circuit wiring.',
+      points: ['Arduino & ESP8266/ESP32 Microcontrollers', 'Sensor Fusion (Ultrasonic, IR, Biometric)', 'Autonomous Combat & Navigation Robots', 'Custom PCB & Breadboard Prototypes']
+    },
+
     {
       title: 'Microsoft Office & Business Automation Tools',
       icon: FileSpreadsheet,
@@ -32,7 +34,7 @@ export default function Services() {
   return (
     <section id="services" className="border-b border-white/10 bg-[#080a11] py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         <div>
           <p className="section-eyebrow">Services</p>
           <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
@@ -47,7 +49,7 @@ export default function Services() {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <div 
+              <div
                 key={service.title}
                 className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] p-5 sm:p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-2xl hover:shadow-blue-600/10"
               >
