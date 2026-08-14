@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cpu, Award, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function About() {
   const badges = [
@@ -16,48 +17,50 @@ export default function About() {
       <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:grid-cols-2 lg:items-center lg:gap-16 px-4 sm:px-6 lg:px-8">
 
         {/* Left Bio Column */}
-        <div>
-          <p className="section-eyebrow">About Me</p>
-          <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black leading-[1.15] tracking-tight text-white">
-            Building intelligent systems where robotics meets modern web technology
-          </h2>
+        <Reveal>
+          <div>
+            <p className="section-eyebrow">About Me</p>
+            <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black leading-[1.15] tracking-tight text-white">
+              Building intelligent systems where robotics meets modern web technology
+            </h2>
 
-          <div className="mt-4 sm:mt-6 space-y-4 text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-300">
-            <p>
-              <strong>Muhammad Saad Atique (Saad Rajpoot)</strong> is a Robotics Intermediate,
-              Embedded Firmware Developer, and Web Developer from Okara, Pakistan, with
-              hands-on experience building robotics, embedded, IoT, and web-based solutions.
-            </p>
-            <p>
-              His technical work combines <strong>Arduino, ESP32, C/C++, microcontrollers,
-                sensors, IoT protocols, and embedded firmware</strong> with modern web
-              development and custom WordPress solutions. He has developed practical
-              projects including Sumo Wrestling robots, Robo Soccer, line-following
-              systems, Cloud Based Biometric Attendance System and other IoT and embedded applications.
-            </p>
-            <p>
-              Alongside hardware and embedded development, Saad creates modern, responsive,
-              and <strong>SEO-friendly websites</strong> and digital solutions, with hands-on
-              experience in WordPress, custom themes, plugins, website optimization, and
-              performance-focused development. He continues to expand his expertise across
-              <strong>Artificial Intelligence, Robotics, Embedded Systems, embedded frameworks,
-                RTOS and ROS</strong>, combining hardware and software to build intelligent and
-              practical technology solutions.
-            </p>
+            <div className="mt-4 sm:mt-6 space-y-4 text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-300">
+              <p>
+                <strong>Muhammad Saad Atique (Saad Rajpoot)</strong> is a Robotics Intermediate,
+                Embedded Firmware Developer, and Web Developer from Okara, Pakistan, with
+                hands-on experience building robotics, embedded, IoT, and web-based solutions.
+              </p>
+              <p>
+                His technical work combines <strong>Arduino, ESP32, C/C++, microcontrollers,
+                  sensors, IoT protocols, and embedded firmware</strong> with modern web
+                development and custom WordPress solutions. He has developed practical
+                projects including Sumo Wrestling robots, Robo Soccer, line-following
+                systems, Cloud Based Biometric Attendance System and other IoT and embedded applications.
+              </p>
+              <p>
+                Alongside hardware and embedded development, Saad creates modern, responsive,
+                and <strong>SEO-friendly websites</strong> and digital solutions, with hands-on
+                experience in WordPress, custom themes, plugins, website optimization, and
+                performance-focused development. He continues to expand his expertise across
+                <strong>Artificial Intelligence, Robotics, Embedded Systems, embedded frameworks,
+                  RTOS and ROS</strong>, combining hardware and software to build intelligent and
+                practical technology solutions.
+              </p>
+            </div>
+
+            {/* Badges */}
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {badges.map((badge) => (
+                <li key={badge} className="badge">
+                  {badge}
+                </li>
+              ))}
+            </ul>
           </div>
-
-          {/* Badges */}
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {badges.map((badge) => (
-              <li key={badge} className="badge">
-                {badge}
-              </li>
-            ))}
-          </ul>
-        </div>
+        </Reveal>
 
         {/* Right Graphical Visual Column */}
-        <div>
+        <Reveal delay={100}>
           <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] p-3 sm:p-6 backdrop-blur-sm">
             <div role="img" aria-label="Cloud Attendance Hardware System" className="relative min-h-[260px] xs:min-h-[300px] sm:min-h-[360px] lg:min-h-[400px] w-full overflow-hidden rounded-xl sm:rounded-2xl bg-[#080a11] p-3 sm:p-4 flex flex-col items-center justify-between border border-white/10">
 
@@ -87,7 +90,7 @@ export default function About() {
               Physical hardware integration — Microcontroller circuit, biometric sensors, & real-time embedded control systems.
             </p>
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </section>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Globe, Award, FolderCheck, Clock } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function Stats() {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -49,7 +50,7 @@ export default function Stats() {
           setHasAnimated(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     const currentRef = sectionRef.current;
@@ -107,23 +108,24 @@ export default function Stats() {
               : `0${stat.suffix}`;
 
             return (
-              <div 
-                key={idx}
-                className="rounded-2xl border border-white/10 bg-[#0c0e17] p-4 sm:p-6 text-center transition-all hover:border-white/25"
-              >
-                <div className="mx-auto flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Reveal key={idx} delay={idx * 60} threshold={0.1}>
+                <div 
+                  className="rounded-2xl border border-white/10 bg-[#0c0e17] p-4 sm:p-6 text-center transition-all hover:border-white/25 h-full"
+                >
+                  <div className="mx-auto flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
+                  <div className="mt-3 font-display text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                    {displayValue}
+                  </div>
+                  <p className="mt-1 font-display text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] text-blue-400">
+                    {stat.label}
+                  </p>
+                  <p className="mt-1.5 text-[11px] sm:text-xs text-slate-400 hidden xs:block">
+                    {stat.description}
+                  </p>
                 </div>
-                <div className="mt-3 font-display text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-                  {displayValue}
-                </div>
-                <p className="mt-1 font-display text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] text-blue-400">
-                  {stat.label}
-                </p>
-                <p className="mt-1.5 text-[11px] sm:text-xs text-slate-400 hidden xs:block">
-                  {stat.description}
-                </p>
-              </div>
+              </Reveal>
             );
           })}
         </div>
