@@ -9,9 +9,8 @@ export default function Navbar() {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
-        requestAnimationFrame(() => {
-          const isScrolled = window.scrollY > 20;
-          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
           ticking = false;
         });
         ticking = true;

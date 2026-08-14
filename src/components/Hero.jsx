@@ -2,36 +2,42 @@ import React, { useRef } from 'react';
 import { Sparkles, ArrowRight, Download, MapPin, Github, Linkedin } from 'lucide-react';
 
 export default function Hero() {
-  const avatarRef = useRef(null);
+  const imgRef = useRef(null);
   const rafId = useRef(null);
 
   const handleMouseMove = (e) => {
-    // Disable 3D tilt on mobile/touch screens to prevent erratic performance
+    // Disable 3D tilt on mobile/touch screens or if element ref is missing
     if (typeof window !== 'undefined' && window.innerWidth < 768) return;
+    if (!imgRef.current) return;
 
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
 
-    if (rafId.current) cancelAnimationFrame(rafId.current);
+    const rotateX = (-y / (rect.height / 2)) * 14;
+    const rotateY = (x / (rect.width / 2)) * 14;
+    const translateX = (x / (rect.width / 2)) * 40;
+    const translateY = (y / (rect.height / 2)) * 30;
+
+    if (rafId.current) {
+      cancelAnimationFrame(rafId.current);
+    }
 
     rafId.current = requestAnimationFrame(() => {
-      if (!avatarRef.current) return;
-      const rotateX = (-y / (rect.height / 2)) * 14;
-      const rotateY = (x / (rect.width / 2)) * 14;
-      const translateX = (x / (rect.width / 2)) * 40;
-      const translateY = (y / (rect.height / 2)) * 30;
-
-      avatarRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${translateX}px, ${translateY}px, 20px) scale(1.05)`;
-      avatarRef.current.style.transition = 'transform 0.05s linear';
+      if (imgRef.current) {
+        imgRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${translateX}px, ${translateY}px, 20px) scale(1.05)`;
+        imgRef.current.style.transition = 'transform 0.05s linear';
+      }
     });
   };
 
   const handleMouseLeave = () => {
-    if (rafId.current) cancelAnimationFrame(rafId.current);
-    if (avatarRef.current) {
-      avatarRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale(1)';
-      avatarRef.current.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    if (rafId.current) {
+      cancelAnimationFrame(rafId.current);
+    }
+    if (imgRef.current) {
+      imgRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale(1)';
+      imgRef.current.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
     }
   };
 
@@ -71,18 +77,12 @@ export default function Hero() {
           {/* Interactive Avatar */}
           <div className="mt-4 sm:mt-8 flex items-center justify-center p-2">
             <img
-              ref={avatarRef}
+              ref={imgRef}
               src="/images/avatar_cutout.png"
               alt="Muhammad Saad Atique"
               loading="eager"
-              fetchPriority="high"
               decoding="async"
-              style={{
-                transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale(1)',
-                transition: 'transform 0.5s ease-out',
-                willChange: 'transform'
-              }}
-              className="h-[180px] xs:h-[220px] sm:h-[300px] md:h-[360px] lg:h-[400px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(59,130,246,0.35)] pointer-events-none"
+              className="h-[180px] xs:h-[220px] sm:h-[300px] md:h-[360px] lg:h-[400px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(59,130,246,0.35)] pointer-events-none will-change-transform"
             />
           </div>
         </div>

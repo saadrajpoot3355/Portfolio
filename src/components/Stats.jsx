@@ -67,7 +67,7 @@ export default function Stats() {
   useEffect(() => {
     if (!hasAnimated) return;
 
-    const duration = 1600;
+    const duration = 1000;
     const startTime = performance.now();
     let animationFrameId;
 
