@@ -139,6 +139,15 @@
   animation: fadeIn 0.25s ease-out forwards;
 }
 
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

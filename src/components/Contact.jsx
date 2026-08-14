@@ -62,71 +62,74 @@ export default function Contact() {
         <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:items-start">
           
           {/* Contact Info Column */}
-          <div>
-            <p className="section-eyebrow">Contact</p>
-            <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-              Let's Build Something Exceptional Together
-            </h2>
-            <p className="mt-3 sm:mt-4 text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-300">
-              Whether you need robotics solutions, custom microcontrollers, embedded firmware, web development services, or technical consultation, I'm here to bring your ideas to reality.
-            </p>
+          <ScrollReveal direction="right">
+            <div>
+              <p className="section-eyebrow">Contact</p>
+              <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+                Let's Build Something Exceptional Together
+              </h2>
+              <p className="mt-3 sm:mt-4 text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-300">
+                Whether you need robotics solutions, custom microcontrollers, embedded firmware, web development services, or technical consultation, I'm here to bring your ideas to reality.
+              </p>
 
-            <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
-              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
-                  <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
+              <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
+                <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">Direct Email</p>
+                    <a 
+                      href="mailto:saadrajpoot3355@gmail.com" 
+                      className="text-xs sm:text-sm font-semibold text-white hover:text-blue-400 transition-colors truncate block"
+                    >
+                      saadrajpoot3355@gmail.com
+                    </a>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">Direct Email</p>
-                  <a 
-                    href="mailto:saadrajpoot3355@gmail.com" 
-                    className="text-xs sm:text-sm font-semibold text-white hover:text-blue-400 transition-colors truncate block"
-                  >
-                    saadrajpoot3355@gmail.com
-                  </a>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
-                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
+                <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
+                    <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">Location</p>
+                    <p className="text-xs sm:text-sm font-semibold text-white">Okara, Pakistan (Remote Worldwide)</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">Location</p>
-                  <p className="text-xs sm:text-sm font-semibold text-white">Okara, Pakistan (Remote Worldwide)</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
-                  <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">Social Profiles</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {socials.map(({ label, href, icon: Icon }) => (
-                      <a
-                        key={label}
-                        href={href}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`${label} Profile`}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-blue-400 transition-all hover:bg-white/10 hover:text-white hover:border-white/30"
-                      >
-                        <Icon className="h-3 w-3 shrink-0" />
-                        {label}
-                      </a>
-                    ))}
+                <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
+                    <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">Social Profiles</p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {socials.map(({ label, href, icon: Icon }) => (
+                        <a
+                          key={label}
+                          href={href}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label={`${label} Profile`}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-blue-400 transition-all hover:bg-white/10 hover:text-white hover:border-white/30"
+                        >
+                          <Icon className="h-3 w-3 shrink-0" />
+                          {label}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Contact Form Column */}
-          <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] p-5 sm:p-8 lg:p-10 shadow-2xl">
-            <h3 className="font-display text-lg sm:text-xl font-bold text-white">Send Me a Message</h3>
-            <p className="mt-1 text-xs text-slate-400">Submitting will prepare an email directly to <span className="text-blue-400 font-semibold">saadrajpoot3355@gmail.com</span>.</p>
+          <ScrollReveal direction="left" delay={100}>
+            <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] p-5 sm:p-8 lg:p-10 shadow-2xl">
+              <h3 className="font-display text-lg sm:text-xl font-bold text-white">Send Me a Message</h3>
+              <p className="mt-1 text-xs text-slate-400">Submitting will prepare an email directly to <span className="text-blue-400 font-semibold">saadrajpoot3355@gmail.com</span>.</p>
 
             {submitted && (
               <div className="mt-4 flex items-center gap-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-3 text-xs text-emerald-400 animate-fadeIn">
@@ -192,6 +195,7 @@ export default function Contact() {
               </button>
             </form>
           </div>
+        </ScrollReveal>
 
         </div>
 

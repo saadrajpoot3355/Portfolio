@@ -74,6 +74,8 @@ export default function Hero() {
               ref={avatarRef}
               src="/images/avatar_cutout.png"
               alt="Muhammad Saad Atique"
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
               style={{
                 transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale(1)',
