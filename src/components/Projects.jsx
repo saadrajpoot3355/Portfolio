@@ -12,7 +12,7 @@ export default function Projects() {
       image: '/images/project_expert_painting.png',
       description: 'A responsive digital platform tailored for home painting services with booking integration, service catalogs (interior & exterior), price estimation features, and multi-device preview UI.',
       highlights: 'Multi-Device Responsive Design & Quick Booking',
-      tags: ['React / Web', 'Responsive UI', 'Service Booking', 'Tailwind CSS', 'UX Design'],
+      tags: ['Web', 'Responsive UI', 'Service Booking', 'SEO Optimized', 'UX Design'],
       icon: Code,
       color: 'from-blue-600 to-indigo-600',
       details: [
@@ -20,8 +20,7 @@ export default function Projects() {
         'Interactive booking form enabling instant consultation requests.',
         'High-converting landing page showcasing specialized interior and exterior painting services.'
       ],
-      githubUrl: 'https://github.com/saadrajpoot3355',
-      liveUrl: 'https://github.com/saadrajpoot3355'
+      liveUrl: 'https://dubaiwallpaint.com'
     },
     {
       id: '02',
@@ -38,8 +37,7 @@ export default function Projects() {
         'Central overview widgets for meetings, pending tasks, expense logs, and notifications.',
         'Automated daily brief generation and CEO availability status tracking.'
       ],
-      githubUrl: 'https://github.com/saadrajpoot3355',
-      liveUrl: 'https://github.com/saadrajpoot3355'
+      liveUrl: 'https://pa-management-system.vercel.app/'
     },
     {
       id: '03',
@@ -48,7 +46,7 @@ export default function Projects() {
       image: '/images/project_ebazzar.png',
       description: 'A full-featured electronic components storefront built for hardware enthusiasts, engineers, and DIY creators featuring product categories, instant search, component specs, and secure checkout.',
       highlights: 'Electronics Catalog & Fast Component Search',
-      tags: ['E-Commerce', 'Electronics Store', 'Parametric Search', 'Product Spec Cards', 'Web App'],
+      tags: ['E-Commerce', 'Electronics Store', 'Parametric Search', 'Product Spec Cards'],
       icon: ShoppingCart,
       color: 'from-cyan-600 to-blue-600',
       details: [
@@ -56,8 +54,7 @@ export default function Projects() {
         'Detailed product view cards complete with voltage ratings and pinout references.',
         'Optimized cart and checkout workflow for fast hardware procurement.'
       ],
-      githubUrl: 'https://github.com/saadrajpoot3355',
-      liveUrl: 'https://github.com/saadrajpoot3355'
+      liveUrl: 'https://electrobazzar.store'
     },
     {
       id: '04',
@@ -136,7 +133,7 @@ export default function Projects() {
   return (
     <section id="projects" className="border-b border-white/10 bg-[#080a11] py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div>
           <p className="section-eyebrow">Projects</p>
@@ -153,19 +150,19 @@ export default function Projects() {
           {projects.slice(0, 3).map((project) => {
             const Icon = project.icon;
             return (
-              <article 
+              <article
                 key={project.id}
                 className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_24px_60px_-30px_rgba(59,130,246,0.3)] lg:flex-row"
               >
                 {/* Visual Cover Container */}
                 <div className="relative flex items-center justify-center overflow-hidden bg-[#070910] p-4 sm:p-6 lg:w-2/5 min-h-[200px] xs:min-h-[240px] sm:min-h-[280px] lg:min-h-[340px]">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.18),transparent_55%)]"></div>
-                  
+
                   {/* Visual Project Image / Graphic */}
                   {project.image ? (
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
+                    <img
+                      src={project.image}
+                      alt={project.title}
                       className="relative z-10 w-full h-auto max-h-[220px] xs:max-h-[260px] sm:max-h-[280px] object-contain rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
@@ -210,7 +207,7 @@ export default function Projects() {
 
                   {/* Action Buttons */}
                   <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
-                    <button 
+                    <button
                       onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
                       className="inline-flex items-center justify-center gap-1.5 rounded-full bg-blue-600 px-4 py-2.5 text-xs sm:text-[13px] font-semibold text-white transition-opacity hover:opacity-90 shadow-md shadow-blue-600/30 active:scale-[0.98]"
                     >
@@ -253,15 +250,15 @@ export default function Projects() {
           {projects.slice(3).map((project) => {
             const Icon = project.icon;
             return (
-              <article 
+              <article
                 key={project.id}
                 className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:-translate-y-1 hover:border-white/25 p-5 sm:p-7"
               >
                 {project.image && (
                   <div className="relative mb-4 flex justify-center overflow-hidden rounded-xl bg-[#070910] p-3 sm:p-4">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
+                    <img
+                      src={project.image}
+                      alt={project.title}
                       className="h-36 sm:h-44 w-full object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>

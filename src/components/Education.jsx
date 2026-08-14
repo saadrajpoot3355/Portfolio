@@ -4,34 +4,43 @@ import { GraduationCap, Award, BookOpen, CheckCircle } from 'lucide-react';
 export default function Education() {
   const educationList = [
     {
+      degree: 'BS Artificial Intelligence (AI)',
+      institution: 'University of Okara',
+      period: 'September 2025 - Present',
+      status: 'In Progress',
+      description: 'Undergraduate degree focused on artificial intelligence, programming, data structures, mathematics, machine learning fundamentals, and computational problem-solving.',
+      skills: ['Artificial Intelligence', 'Programming', 'Data Structures', 'Mathematics', 'Machine Learning']
+    },
+    {
       degree: 'FSc in Computer Science (ICS)',
       institution: 'Punjab Group of Colleges',
       period: 'February 2022 - June 2024',
       status: 'Completed',
-      description: 'Intermediate computer science education establishing core technical competencies, programming fundamentals, mathematics, and logic building.',
-      skills: ['Programming Logic', 'Data Structures', 'Computer Networks', 'Physics & Math']
+      description: 'Intermediate-level computer science education developing foundational knowledge in programming, mathematics, computer science, and logical problem-solving.',
+      skills: ['Programming Logic', 'Computer Science', 'Mathematics', 'Problem Solving']
     },
     {
-      degree: 'Matriculation in Computer Science',
+      degree: 'Matriculation in Science (Biology Track)',
       institution: 'D.P.S & College Okara, Pakistan',
       period: 'March 2010 - February 2022',
       status: 'Completed',
-      description: 'Comprehensive secondary school computer science education laying foundational problem-solving and IT skills.',
-      skills: ['Computer Fundamentals', 'Algorithms', 'Basic Electronics', 'General Science']
+      description: 'Secondary school education with a science-focused curriculum, building foundational knowledge in computer fundamentals, general science, mathematics, and problem-solving.',
+      skills: ['Computer Fundamentals', 'Basic Electronics', 'General Science', 'Mathematics']
     }
   ];
 
   const certifications = [
-    'Microsoft Office Specialist Certification (Word, Excel, Access)',
-    'Full-Stack WordPress Custom Theme & Plugin Architecture',
-    'Robotics & Microcontrollers Hardware Certification (Arduino & ESP32)',
-    'Embedded C/C++ Firmware Design & MISRA Standards'
+    'Robotics Exhibition — Certificate of Participation (2024 & 2025)',
+    'Tech Fiesta 2026 — Sumo Wrestling Robotics Competition, Runner-Up',
+    'Tech Fiesta 2026 — Robo Soccer Competition, Participant',
+    'Campus Ambassador — Certificate of Recognition, Embeduino Labs',
+    'Microsoft Word Specialist Certification — Microsoft'
   ];
 
   return (
     <section id="education" className="border-b border-white/10 bg-[#0a0c14] py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         <div>
           <p className="section-eyebrow">Education & Certifications</p>
           <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
@@ -40,7 +49,7 @@ export default function Education() {
         </div>
 
         <div className="mt-8 sm:mt-12 grid gap-6 sm:gap-8 lg:grid-cols-2">
-          
+
           {/* Academic Background */}
           <div className="space-y-4 sm:space-y-6">
             <h3 className="font-display text-lg sm:text-xl font-bold text-white flex items-center gap-2">
@@ -58,7 +67,7 @@ export default function Education() {
                 <p className="mt-1 text-xs sm:text-sm font-semibold text-slate-300">{edu.institution}</p>
                 <p className="text-xs text-blue-400 font-mono mt-1">{edu.period}</p>
                 <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-400">{edu.description}</p>
-                
+
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {edu.skills.map((s) => (
                     <span key={s} className="badge text-[10px] sm:text-[11px]">

@@ -5,13 +5,13 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#080a11] py-8 sm:py-12 text-slate-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-between gap-4 sm:gap-6 sm:flex-row text-center sm:text-left">
-        
+
         <div>
           <p className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
-            Muhammad Saad Atique (Saad Rajpoot)
+            MUHAMMAD SAAD ATIQUE (SAAD RAJPOOT)
           </p>
           <p className="mt-1 text-[11px] sm:text-xs text-slate-400">
-            Robotics Specialist · Embedded Developer · Web Developer
+            Robotics Intermediate · Embedded Firmware Developer · Web Developer
           </p>
         </div>
 
