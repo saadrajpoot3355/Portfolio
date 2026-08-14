@@ -169,6 +169,8 @@ export default function Projects() {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
+                      decoding="async"
                       className="relative z-10 w-full h-auto max-h-[220px] xs:max-h-[260px] sm:max-h-[280px] object-contain rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
@@ -277,6 +279,8 @@ export default function Projects() {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
+                      decoding="async"
                       className="h-36 sm:h-44 w-full object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
