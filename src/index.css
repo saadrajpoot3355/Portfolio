@@ -153,24 +153,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.4);
 }
-
-/* Accessibility: Respect Reduced Motion Preference */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-  .opacity-0 {
-    opacity: 1 !important;
-  }
-  .translate-y-6,
-  .-translate-y-6,
-  .translate-y-4,
-  .translate-y-2 {
-    transform: none !important;
-  }
-}
