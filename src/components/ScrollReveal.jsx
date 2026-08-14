@@ -23,15 +23,17 @@ export default function ScrollReveal({
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (once) observer.unobserve(node);
-        } else if (!once) {
-          setIsVisible(false);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            if (once) observer.unobserve(entry.target);
+          } else if (!once) {
+            setIsVisible(false);
+          }
+        });
       },
-      { threshold, rootMargin: '0px 0px -30px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
     );
 
     observer.observe(node);

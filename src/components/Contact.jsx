@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, CheckCircle } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 // Inline SVG icons for platforms not in lucide-react
 const InstagramIcon = ({ className }) => (
