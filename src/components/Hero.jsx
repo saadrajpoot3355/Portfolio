@@ -54,7 +54,7 @@ export default function Hero() {
 
         {/* Display Headline + Avatar */}
         <div className="relative flex w-full flex-col items-center justify-center py-2 my-auto select-none overflow-hidden">
-          <h1 className="sr-only">Muhammad Saad Atique — Robotics Intermiate & Web Developer</h1>
+          <h1 className="sr-only">Muhammad Saad Atique — Robotics Intermediate & Web Developer</h1>
 
           {/* Main Giant Headline - Single Line Name */}
           <div className="flex flex-col items-center justify-center text-center font-display font-black leading-[0.95] tracking-tight uppercase px-2 w-full">
@@ -86,7 +86,7 @@ export default function Hero() {
           {/* Text Summary */}
           <div className="max-w-xl text-center lg:text-left">
             <p className="font-display text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-blue-400">
-              Robotics Intermiate & Web Developer
+              Robotics Intermediate & Web Developer
             </p>
             <p className="mt-1 text-xs sm:text-sm leading-relaxed text-white/80">
               Designing intelligent robotics, microcontrollers, embedded firmware, & custom web applications.

@@ -14,23 +14,36 @@ export default function About() {
   return (
     <section id="about" className="border-b border-white/10 bg-[#0a0c14] py-12 sm:py-16 lg:py-24 relative">
       <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:grid-cols-2 lg:items-center lg:gap-16 px-4 sm:px-6 lg:px-8">
-        
+
         {/* Left Bio Column */}
         <div>
-          <p className="section-eyebrow">About</p>
+          <p className="section-eyebrow">About Me</p>
           <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl lg:text-5xl font-black leading-[1.15] tracking-tight text-white">
-            Blending physical robotics with modern web engineering
+            Building intelligent systems where robotics meets modern web technology
           </h2>
 
           <div className="mt-4 sm:mt-6 space-y-4 text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-300">
             <p>
-              <strong>Muhammad Saad Atique (Saad Rajpoot)</strong> is an experienced Robotics Specialist, Embedded Developer, and Web Developer based in Pakistan, collaborating with clients internationally since 2022.
+              <strong>Muhammad Saad Atique (Saad Rajpoot)</strong> is a Robotics Intermediate,
+              Embedded Firmware Developer, and Web Developer from Okara, Pakistan, with
+              hands-on experience building robotics, embedded, IoT, and web-based solutions.
             </p>
+
             <p>
-              His core focus spans designing intelligent machines, microcontrollers (Arduino, ESP8266/ESP32), sensors, and firmware design alongside creating modern, responsive full-stack websites and custom WordPress solutions.
+              His technical work combines <strong>Arduino, ESP32, C/C++, microcontrollers,
+              sensors, IoT protocols, and embedded firmware</strong> with modern web
+              development and custom WordPress solutions. He has developed practical
+              projects including Sumo Wrestling robots, Robo Soccer, line-following
+              systems, and other IoT and embedded applications.
             </p>
+
             <p>
-              As a certified Microsoft Office Specialist, Saad leverages advanced workflow automation and documentation tools to deliver complete hardware-to-software solutions for businesses and international clients.
+              Alongside hardware and embedded development, Saad creates responsive,
+              user-focused websites and digital solutions, with experience in WordPress,
+              themes, plugins, website performance, and SEO. He is currently pursuing a{' '}
+              <strong>BS in Artificial Intelligence at the University of Okara</strong>,
+              continuously expanding his skills across AI, robotics, and software
+              engineering.
             </p>
           </div>
 
@@ -42,22 +55,21 @@ export default function About() {
               </li>
             ))}
           </ul>
-
         </div>
 
         {/* Right Graphical Visual Column */}
         <div>
           <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] p-3 sm:p-6 backdrop-blur-sm">
             <div role="img" aria-label="Cloud Attendance Hardware System" className="relative min-h-[260px] xs:min-h-[300px] sm:min-h-[360px] lg:min-h-[400px] w-full overflow-hidden rounded-xl sm:rounded-2xl bg-[#080a11] p-3 sm:p-4 flex flex-col items-center justify-between border border-white/10">
-              
+
               {/* Circuit Grid Backdrop */}
               <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] opacity-15"></div>
-              
+
               <div className="relative z-10 flex flex-col items-center gap-3 text-center h-full w-full justify-between py-1">
                 <div className="relative overflow-hidden rounded-xl border border-white/20 shadow-2xl bg-black/40 p-2 flex-1 flex items-center justify-center w-full">
-                  <img 
-                    src="/images/cloud_attendance_robot.png" 
-                    alt="Cloud Attendance Hardware System" 
+                  <img
+                    src="/images/cloud_attendance_robot.png"
+                    alt="Cloud Attendance Hardware System"
                     className="max-h-[200px] xs:max-h-[240px] sm:max-h-[280px] w-auto max-w-full object-contain rounded-lg shadow-xl"
                   />
                 </div>
