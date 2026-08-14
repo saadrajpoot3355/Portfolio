@@ -28,22 +28,21 @@ export default function About() {
               Embedded Firmware Developer, and Web Developer from Okara, Pakistan, with
               hands-on experience building robotics, embedded, IoT, and web-based solutions.
             </p>
-
             <p>
               His technical work combines <strong>Arduino, ESP32, C/C++, microcontrollers,
-              sensors, IoT protocols, and embedded firmware</strong> with modern web
+                sensors, IoT protocols, and embedded firmware</strong> with modern web
               development and custom WordPress solutions. He has developed practical
               projects including Sumo Wrestling robots, Robo Soccer, line-following
               systems, and other IoT and embedded applications.
             </p>
-
             <p>
-              Alongside hardware and embedded development, Saad creates responsive,
-              user-focused websites and digital solutions, with experience in WordPress,
-              themes, plugins, website performance, and SEO. He is currently pursuing a{' '}
-              <strong>BS in Artificial Intelligence at the University of Okara</strong>,
-              continuously expanding his skills across AI, robotics, and software
-              engineering.
+              Alongside hardware and embedded development, Saad creates modern, responsive,
+              and <strong>SEO-friendly websites</strong> and digital solutions, with hands-on
+              experience in WordPress, custom themes, plugins, website optimization, and
+              performance-focused development. He continues to expand his expertise across
+              <strong>Artificial Intelligence, Robotics, Embedded Systems, embedded frameworks,
+                and ROS</strong>, combining hardware and software to build intelligent and
+              practical technology solutions.
             </p>
           </div>
 
