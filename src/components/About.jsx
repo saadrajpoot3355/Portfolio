@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, GraduationCap, Award, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { Cpu, Award, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
 
 export default function About() {
   const badges = [
@@ -43,23 +43,6 @@ export default function About() {
             ))}
           </ul>
 
-          {/* Featured Highlights Card */}
-          <div className="mt-8 sm:mt-10 rounded-2xl border border-white/10 bg-[#0f121d] p-5 sm:p-6 shadow-xl">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600/20 text-blue-400">
-                <GraduationCap className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="section-eyebrow">Education</p>
-                <h3 className="font-display text-base sm:text-lg font-bold text-white">FSc in Computer Science (ICS)</h3>
-              </div>
-            </div>
-            <p className="mt-2 text-xs sm:text-sm text-slate-400">Punjab Group of Colleges (Feb 2022 - Jun 2024)</p>
-            <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-blue-400">Completed with Distinction</p>
-            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-300">
-              Intermediate studies in computer science, establishing deep foundational expertise in programming, data structures, and computer organization.
-            </p>
-          </div>
         </div>
 
         {/* Right Graphical Visual Column */}

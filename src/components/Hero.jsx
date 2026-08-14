@@ -14,7 +14,7 @@ export default function Hero() {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    
+
     const rotateX = (-y / (rect.height / 2)) * 14;
     const rotateY = (x / (rect.width / 2)) * 14;
     const translateX = (x / (rect.width / 2)) * 40;
@@ -34,8 +34,8 @@ export default function Hero() {
   };
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-[#080808] pt-16 sm:pt-20"
@@ -45,17 +45,17 @@ export default function Hero() {
 
       {/* Main Hero Content */}
       <div className="relative flex flex-1 flex-col items-center justify-center pt-6 sm:pt-10 pb-8 px-4 z-10 max-w-7xl mx-auto w-full">
-        
+
         {/* Top Eyebrow Badge */}
         <p className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.22em] text-white/90 backdrop-blur-md mb-3 sm:mb-6 text-center max-w-[95%]">
           <Sparkles className="h-3.5 w-3.5 text-blue-400 shrink-0" />
-          <span>Robotics · Embedded Systems · Web Dev</span>
+          <span>Robotics · Embedded Systems · Web Development</span>
         </p>
 
         {/* Display Headline + Avatar */}
         <div className="relative flex w-full flex-col items-center justify-center py-2 my-auto select-none overflow-hidden">
-          <h1 className="sr-only">Muhammad Saad Atique — Robotics Specialist & Web Developer</h1>
-          
+          <h1 className="sr-only">Muhammad Saad Atique — Robotics Intermiate & Web Developer</h1>
+
           {/* Main Giant Headline - Single Line Name */}
           <div className="flex flex-col items-center justify-center text-center font-display font-black leading-[0.95] tracking-tight uppercase px-2 w-full">
             <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl text-slate-400">
@@ -68,9 +68,9 @@ export default function Hero() {
 
           {/* Interactive Avatar */}
           <div className="mt-4 sm:mt-8 flex items-center justify-center p-2">
-            <img 
-              src="/images/avatar_cutout.png" 
-              alt="Muhammad Saad Atique" 
+            <img
+              src="/images/avatar_cutout.png"
+              alt="Muhammad Saad Atique"
               style={transformStyle}
               className="h-[180px] xs:h-[220px] sm:h-[300px] md:h-[360px] lg:h-[400px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(59,130,246,0.35)] pointer-events-none"
             />
@@ -82,11 +82,11 @@ export default function Hero() {
       {/* Hero Bottom Bar */}
       <div className="relative z-20 border-t border-white/10 bg-[#080808]/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          
+
           {/* Text Summary */}
           <div className="max-w-xl text-center lg:text-left">
             <p className="font-display text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-blue-400">
-              Robotics Specialist & Web Developer
+              Robotics Intermiate & Web Developer
             </p>
             <p className="mt-1 text-xs sm:text-sm leading-relaxed text-white/80">
               Designing intelligent robotics, microcontrollers, embedded firmware, & custom web applications.
