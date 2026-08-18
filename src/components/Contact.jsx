@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, CheckCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, MessageSquare, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 // Inline SVG icons for platforms not in lucide-react
 const InstagramIcon = ({ className }) => (
@@ -36,23 +36,51 @@ const socials = [
 ];
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState({ type: 'idle', message: '' });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-
+  const handleMailtoFallback = () => {
     const emailSubject = encodeURIComponent(formData.subject || 'Portfolio Inquiry');
     const emailBody = encodeURIComponent(
       `Hello Saad,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
-
-    // Open user's email client addressed directly to saadrajpoot3355@gmail.com
     window.location.href = `mailto:saadrajpoot3355@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+  };
 
-    setTimeout(() => setSubmitted(false), 6000);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ type: 'loading', message: 'Sending message...' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok || response.status === 202) {
+        setStatus({
+          type: 'success',
+          message: 'Message sent successfully!'
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus({
+          type: 'error',
+          message: 'Something went wrong. Please try again.'
+        });
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus({
+        type: 'error',
+        message: 'Something went wrong. Please try again.'
+      });
+    }
   };
 
   return (
@@ -72,7 +100,7 @@ export default function Contact() {
             </p>
 
             <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
-              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
+              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/15 bg-[#0c0e17] p-3.5 sm:p-4">
                 <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
                   <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
@@ -87,7 +115,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
+              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/15 bg-[#0c0e17] p-3.5 sm:p-4">
                 <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
                   <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
@@ -97,7 +125,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-[#0c0e17] p-3.5 sm:p-4">
+              <div className="flex items-center gap-3 sm:gap-4 rounded-2xl border border-white/15 bg-[#0c0e17] p-3.5 sm:p-4">
                 <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
                   <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
@@ -126,12 +154,30 @@ export default function Contact() {
           {/* Contact Form Column */}
           <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] p-5 sm:p-8 lg:p-10 shadow-2xl">
             <h3 className="font-display text-lg sm:text-xl font-bold text-white">Send Me a Message</h3>
-            <p className="mt-1 text-xs text-slate-400">Submitting will prepare an email directly to <span className="text-blue-400 font-semibold">saadrajpoot3355@gmail.com</span>.</p>
+            <p className="mt-1 text-xs text-slate-400">Submitting will send your query directly to the portfolio inbox.</p>
 
-            {submitted && (
+            {status.type === 'success' && (
               <div className="mt-4 flex items-center gap-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-3 text-xs text-emerald-400 animate-fadeIn">
                 <CheckCircle className="h-4 w-4 shrink-0" />
-                Your email client has been launched with your message prepared for saadrajpoot3355@gmail.com!
+                {status.message}
+              </div>
+            )}
+
+            {status.type === 'error' && (
+              <div className="mt-4 rounded-xl bg-rose-500/10 border border-rose-500/30 p-3 text-xs text-rose-400 animate-fadeIn">
+                <div className="flex items-start gap-2">
+                  <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <p>{status.message}</p>
+                    <button
+                      type="button"
+                      onClick={handleMailtoFallback}
+                      className="mt-1.5 font-bold underline hover:text-white transition-colors"
+                    >
+                      Send via mail client (mailto) instead
+                    </button>
+                  </div>
+                </div>
               </div>
             )}
 
@@ -186,9 +232,18 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition-all hover:bg-blue-500 active:scale-[0.98]"
+                disabled={status.type === 'loading'}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition-all hover:bg-blue-500 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
               >
-                <Send className="h-4 w-4" /> Send Message
+                {status.type === 'loading' ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" /> Send Message
+                  </>
+                )}
               </button>
             </form>
           </div>

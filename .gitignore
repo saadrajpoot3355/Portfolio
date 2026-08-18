@@ -8,6 +8,14 @@ dist/
 *.log
 .DS_Store
 
+# Environment Variables (Keep credentials secret!)
+.env
+.env.local
+.env.*.local
+server/.env
+server/.env.local
+server/.env.*.local
+
 # Temporary / extraction scripts & raw data
 gamma_*.txt
 gamma_*.html

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "msyhcwb76h6wv",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "subject": "Testing Portfolio Backend",
+    "message": "Hello from mock validation test!",
+    "timestamp": "2026-08-18T09:48:40.723Z"
+  },
+  {
+    "id": "msyhifw4e5b",
+    "name": "Saad",
+    "email": "test@example.com",
+    "subject": "Testing server.js",
+    "message": "Hello from server.js",
+    "timestamp": "2026-08-18T09:52:59.381Z"
+  }
+]
