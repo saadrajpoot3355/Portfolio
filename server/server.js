@@ -90,45 +90,48 @@ app.post('/api/contact', async (req, res) => {
       console.error('[Contact] Failed to save submission locally:', saveError);
     }
 
-    // Send email via Nodemailer if SMTP is configured
+    // Send email via Nodemailer
     const transporter = getTransporter();
     const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'saadrajpoot3355@gmail.com';
-    let emailSent = false;
 
-    if (transporter) {
-      try {
-        await transporter.sendMail({
-          from: `"${name} (Portfolio Inquiry)" <${process.env.SMTP_USER}>`,
-          to: receiverEmail,
-          replyTo: email,
-          subject: `Portfolio: ${subject}`,
-          text: `New Portfolio Message\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; background-color: #0a0c14; color: #fff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #38bdf8; margin-top: 0;">New Contact Form Message</h2>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #38bdf8;">${email}</a></p>
-              <p><strong>Subject:</strong> ${subject}</p>
-              <div style="margin-top: 16px; padding: 16px; background-color: #0c0e17; border: 1px solid #1e293b; border-radius: 8px; white-space: pre-wrap;">
-                ${message}
-              </div>
-            </div>
-          `
-        });
-        emailSent = true;
-        console.log('[Contact] Email notification sent successfully');
-      } catch (emailErr) {
-        console.error('[Contact] Failed to send email via SMTP:', emailErr);
-      }
-    } else {
-      console.log('[Contact] SMTP not configured. Submission saved locally.');
+    if (!transporter) {
+      console.error('[Contact] SMTP credentials (EMAIL_USER / EMAIL_PASSWORD) not configured.');
+      return res.status(500).json({
+        error: 'Email service is not configured on the server.',
+      });
     }
 
-    return res.status(201).json({
+    try {
+      await transporter.sendMail({
+        from: `"${name} (Portfolio Inquiry)" <${process.env.EMAIL_USER || process.env.SMTP_USER}>`,
+        to: receiverEmail,
+        replyTo: email,
+        subject: `Portfolio: ${subject}`,
+        text: `New Portfolio Message\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; background-color: #0a0c14; color: #fff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #38bdf8; margin-top: 0;">New Contact Form Message</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #38bdf8;">${email}</a></p>
+            <p><strong>Subject:</strong> ${subject}</p>
+            <div style="margin-top: 16px; padding: 16px; background-color: #0c0e17; border: 1px solid #1e293b; border-radius: 8px; white-space: pre-wrap;">
+              ${message}
+            </div>
+          </div>
+        `
+      });
+      console.log('[Contact] Email notification sent successfully');
+    } catch (emailErr) {
+      console.error('[Contact] Failed to send email via SMTP:', emailErr);
+      return res.status(500).json({
+        error: 'Failed to deliver email. Please try again.',
+      });
+    }
+
+    return res.status(200).json({
       success: true,
-      message: 'Thank you for your message! It has been submitted successfully.',
-      id: submission.id,
-      emailNotification: emailSent ? 'sent' : 'logged'
+      message: 'Message sent successfully!',
+      id: submission.id
     });
 
   } catch (error) {

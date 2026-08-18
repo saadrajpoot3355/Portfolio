@@ -62,7 +62,7 @@ export default function Contact() {
 
       const data = await response.json();
 
-      if (response.ok || response.status === 202) {
+      if (response.ok) {
         setStatus({
           type: 'success',
           message: 'Message sent successfully!'

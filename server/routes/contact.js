@@ -80,27 +80,24 @@ router.post('/', async (req, res, next) => {
     }
 
     // 3. Send email notification
-    let emailStatus = { sent: false };
     try {
-      emailStatus = await sendContactEmail(submission);
+      const emailStatus = await sendContactEmail(submission);
+      if (!emailStatus.sent) {
+        return res.status(500).json({
+          error: 'Email service is not configured on the server.',
+        });
+      }
     } catch (emailError) {
       console.error('[ContactRouter] Email notification failed:', emailError);
-      // We don't fail the response, because the submission was already saved.
-      // We notify the frontend that the submission was recorded but email failed,
-      // or we can just say "Success" to the user and log email errors internally.
-      return res.status(202).json({
-        success: true,
-        message: 'Your message has been saved successfully, but there was an issue sending the email notification. I will review it in my records.',
-        id: submission.id,
-        emailNotification: 'failed'
+      return res.status(500).json({
+        error: 'Failed to deliver email. Please try again.',
       });
     }
 
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
-      message: 'Thank you for your message! It has been submitted successfully and I will get back to you soon.',
+      message: 'Message sent successfully!',
       id: submission.id,
-      emailNotification: emailStatus.sent ? 'sent' : 'disabled'
     });
 
   } catch (error) {
