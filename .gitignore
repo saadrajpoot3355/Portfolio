@@ -22,3 +22,4 @@ gamma_*.html
 saad_portfolio_extracted.txt
 scrape_gamma.js
 site_test.html
+*.timestamp*.mjs
