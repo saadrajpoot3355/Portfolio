@@ -61,7 +61,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#080a11] py-8 sm:py-12 text-slate-400">
+    <footer className="portfolio-footer border-t border-white/10 bg-[#080a11] py-8 sm:py-12 text-slate-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Top row: name + social icons */}
@@ -96,11 +96,15 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom row: copyright */}
-        <div className="mt-6 border-t border-white/10 pt-5 text-center">
-          <p className="text-[11px] sm:text-xs text-slate-500">
-            © {new Date().getFullYear()} Saad Rajpoot. All rights reserved.
+        {/* Bottom row: copyright & track info */}
+        <div className="mt-6 border-t border-white/10 pt-5 text-center space-y-1">
+          <p className="text-[11px] sm:text-xs text-slate-400">
+            © 2026 Muhammad Saad Atique. All rights reserved.
           </p>
+          <p className="text-[11px] sm:text-xs text-slate-400">
+            Track: General AI Fluency | Week 7 Submission
+          </p>
+          {/* FlyRank Graduate Badge slot ready for post-verification linkage */}
         </div>
 
       </div>
