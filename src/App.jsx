@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
-import Robotics from './components/Robotics';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
@@ -20,7 +19,6 @@ export default function App() {
         <Hero />
         <About />
         <Projects />
-        <Robotics />
         <Skills />
         <Experience />
         <Services />
