@@ -67,7 +67,7 @@ export default function About() {
               <div className="relative z-10 flex flex-col items-center gap-3 text-center h-full w-full justify-between py-1">
                 <div className="relative overflow-hidden rounded-xl border border-white/20 shadow-2xl bg-black/40 p-2 flex-1 flex items-center justify-center w-full">
                   <img
-                    src="/images/cloud_attendance_robot.png"
+                    src="/images/cloud_attendance_robot.webp"
                     alt="Cloud Attendance Hardware System"
                     loading="lazy"
                     decoding="async"

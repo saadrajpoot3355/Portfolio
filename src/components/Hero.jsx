@@ -78,7 +78,7 @@ export default function Hero() {
           <div className="mt-4 sm:mt-8 flex items-center justify-center p-2">
             <img
               ref={imgRef}
-              src="/images/avatar_cutout.png"
+              src="/images/avatar_cutout.webp"
               alt="Muhammad Saad Atique"
               loading="eager"
               decoding="async"

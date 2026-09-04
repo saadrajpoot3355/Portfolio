@@ -582,7 +582,7 @@ export default function Robotics() {
             return (
               <article
                 key={project.id}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-white/25 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)]"
               >
                 <div>
                   {/* Card Media Header */}
@@ -600,7 +600,7 @@ export default function Robotics() {
                     {/* Gradient Overlay */}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c0e17] via-transparent to-black/40"></div>
 
-                    {/* Number Badge */}
+                    {/* Number Badge & Category */}
                     <div className="absolute top-3 left-3 z-10 flex items-center gap-2">
                       <span className="rounded-full bg-black/60 border border-white/20 px-2.5 py-0.5 font-display text-[11px] font-bold text-white backdrop-blur">
                         #{project.number}
@@ -638,7 +638,7 @@ export default function Robotics() {
                     </h3>
                     <p className="mt-1 text-xs sm:text-sm font-medium text-blue-300/90">{project.subtitle}</p>
 
-                    <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-slate-300">
+                    <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">
                       {project.description}
                     </p>
 
@@ -648,7 +648,7 @@ export default function Robotics() {
                       {project.objective}
                     </div>
 
-                    {/* Hardware Tags */}
+                    {/* Hardware & Tech Tags */}
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       {project.tags.map((tag) => (
                         <span key={tag} className="badge text-[10px] sm:text-[11px]">
@@ -657,7 +657,7 @@ export default function Robotics() {
                       ))}
                     </div>
 
-                    {/* Expandable Technical Specs Area */}
+                    {/* Expandable Technical Breakdown Specs Area */}
                     {isExpanded && (
                       <div className="mt-5 space-y-4 rounded-2xl bg-black/40 border border-white/10 p-4 sm:p-5 text-xs animate-fadeIn">
                         {/* Key Functionality */}
@@ -739,24 +739,26 @@ export default function Robotics() {
                 </div>
 
                 {/* Card Footer Actions */}
-                <div className="flex items-center justify-between gap-3 p-5 sm:p-7 pt-0 border-t border-white/5 mt-4">
-                  <button
-                    onClick={() => setExpandedProject(isExpanded ? null : project.id)}
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-semibold text-blue-400 hover:text-blue-300 transition-colors"
-                  >
-                    <span>{isExpanded ? 'Collapse Technical Breakdown' : 'Technical Breakdown'}</span>
-                    {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                  </button>
-
+                <div className="flex flex-wrap items-center justify-between gap-3 p-5 sm:p-7 pt-0 border-t border-white/5 mt-4">
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setModalProject(project)}
-                      className="inline-flex items-center gap-1 rounded-xl border border-white/15 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/10 transition-colors"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3.5 py-2 text-xs sm:text-[13px] font-semibold text-white hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all active:scale-[0.98]"
                     >
-                      <span>Case Study</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 text-blue-400" />
+                      <span>More Details</span>
+                      <ArrowUpRight className="h-3.5 w-3.5" />
                     </button>
 
+                    <button
+                      onClick={() => setExpandedProject(isExpanded ? null : project.id)}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-blue-300 transition-colors px-2 py-2"
+                    >
+                      <span>{isExpanded ? 'Hide Specs' : 'Quick Specs'}</span>
+                      {isExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                    </button>
+                  </div>
+
+                  <div className="flex items-center gap-2">
                     {project.demoUrl && (
                       <a
                         href={project.demoUrl}
