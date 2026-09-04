@@ -31,142 +31,15 @@ export default function Projects() {
   const [modalProject, setModalProject] = useState(null);
 
   const filterTabs = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'robotics', label: 'Robotics & IoT' },
+    { id: 'all', label: 'All Software' },
     { id: 'web', label: 'Web & E-Commerce' },
     { id: 'saas', label: 'SaaS & Dashboards' }
   ];
 
   const projects = [
-    // ── 01. Sumo Beast Combat Robot ──────────────────────────────────────────
+    // ── 01. Expert Painting Services Web Application ────────────────────────
     {
       id: '01',
-      type: 'robotics',
-      title: 'Sumo Beast Combat Robot',
-      subtitle: 'High-Torque 6WD Autonomous Combat Platform & Custom Wedge Blade',
-      category: 'Robotics & Hardware Engineering',
-      role: 'Lead Robotics & Hardware Engineer',
-      image: '/images/robot_sumo_beast.webp',
-      description:
-        'A heavyweight autonomous combat robot engineered for competitive sumo wrestling arenas. Built with a custom 6-wheel-drive high-traction chassis, rapid-response dual H-bridge motor drivers, optical sensor fusion for boundary tracking, and reinforced welded front wedge armor designed to invert opponent bots.',
-      purpose:
-        'In national robotic sumo tournaments, standard 2WD and 4WD platforms regularly fail due to wheel slippage, slow motor reversal latency under heavy loads, and structural deformation upon high-impact collisions. The goal was to engineer an unyielding autonomous 6WD combat vehicle with zero boundary-fault rates and maximum pushing power.',
-      contribution:
-        'Sole hardware and firmware designer: Designed the entire 6WD mechanical chassis architecture, engineered custom high-traction silicone tread molding, wired dual 43A BTS7960 H-bridge drivers with optocoupler isolation, and programmed the autonomous sensor fusion loop on ESP32 in C++.',
-      implementation:
-        'Configured dual-core ESP32 FreeRTOS tasks to separate optical IR floor boundary detection (sampled at 100Hz) from ultrasonic opponent ranging. Implemented dynamic PWM brake-and-reverse algorithms delivering sub-10ms directional inversion when approaching the white ring border.',
-      outcomes:
-        'Delivered 18+ kg-cm of stall torque per side, achieved a 100% boundary safety record during trials, and demonstrated sub-10ms counter-maneuver reaction against fast incoming opponents.',
-      highlights: '6WD High-Torque Drivetrain with Sub-10ms Direction Inversion',
-      tags: ['Autonomous Robotics', '6WD Motor Drive', 'ESP32 / Arduino', 'C/C++', 'Sensor Fusion', 'BTS7960 Drivers'],
-      icon: Bot,
-      color: 'from-purple-600 to-indigo-600',
-      metrics: [
-        { label: 'Drivetrain Torque', value: '18+ kg-cm' },
-        { label: 'Control Loop Latency', value: '< 10 ms' },
-        { label: 'Sensor Sampling', value: '100 Hz' }
-      ],
-      details: [
-        'Custom 6-wheel drive layout with high-friction all-terrain silicone tires delivering maximum arena traction.',
-        'Reinforced steel front wedge scoop blade engineered with a 15° attack angle to lift and invert opponents.',
-        'High-current BTS7960 dual H-bridge motor driver stages capable of 43A peak stall current handling.',
-        'Microcontroller control loop executing real-time infrared boundary sensing and ultrasonic target tracking.'
-      ],
-      stack: {
-        hardware: ['Custom 6WD Chassis', 'High-Torque DC Geared Motors', 'Steel Wedge Scoop', '4S LiPo Power Rail'],
-        firmware: ['ESP32', 'C/C++', 'FreeRTOS Dual-Core Tasks', 'PWM Motor Inversion'],
-        sensors: ['Dual IR Ring Line Sensors', 'Ultrasonic Rangefinders', 'Telemetry Streamer']
-      },
-      githubUrl: 'https://github.com/saadrajpoot3355'
-    },
-
-    // ── 02. Simba 2.0 Autonomous Combat & Telemetry Robot ────────────────────
-    {
-      id: '02',
-      type: 'robotics',
-      title: 'Simba 2.0 Combat & Telemetry Platform',
-      subtitle: 'Heavy-Duty Dual-Motor Combat Platform with Live RF Telemetry',
-      category: 'Robotics & Microcontrollers',
-      role: 'Embedded Hardware Developer',
-      image: '/images/robot_simba_2_grid.webp',
-      description:
-        'A tactical dual-motor combat robot hardware build featuring customized reinforced chassis, high-capacity lead-acid power delivery system, multi-layer motor driver bridges, custom front scoop shield, and wireless RF telemetry modules for live system monitoring.',
-      purpose:
-        'Competitive combat robots often experience sudden electronic resets and motor driver burnouts caused by high inductive back-EMF spikes during stall conditions, alongside a complete lack of real-time diagnostic visibility on battery health and motor thermals.',
-      contribution:
-        'Engineered the multi-rail isolated power distribution board, integrated flyback snubbing diodes, built the dual-chassis electronic shock damping suspension, and wrote the bidirectional 2.4GHz RF telemetry firmware.',
-      implementation:
-        'Designed an opto-isolated control barrier separating motor driver high-current transients (up to 50A burst) from logic rails. Programmed nRF24L01 transceiver packets transmitting real-time ADC current sensing, pack voltages, and thermals to a handheld diagnostic monitor at 150m range.',
-      outcomes:
-        'Zero controller resets across rigorous impact and stall torture testing; extended continuous run-time with live thermal monitoring warning thresholds.',
-      highlights: 'High-Current Isolated Power Architecture & Wireless Telemetry',
-      tags: ['Robotics Hardware', 'Motor Drivers', 'Chassis Design', 'Embedded Circuits', 'RF Telemetry', 'Power Electronics'],
-      icon: Cpu,
-      color: 'from-red-600 to-amber-600',
-      metrics: [
-        { label: 'Peak Current Handling', value: '50A Burst' },
-        { label: 'Telemetry Range', value: '150+ Meters' },
-        { label: 'Chassis Durability', value: 'High Impact' }
-      ],
-      details: [
-        'High-capacity power distribution wiring harness with heavy-duty rechargeable battery and safety master cut-off.',
-        'Custom multi-layer motor driver bridge with active heatsinks and snubbing diodes for inductive spike dampening.',
-        'Dual-chassis shock-absorbing electronic deck isolating microcontrollers from mechanical shocks.',
-        'Real-time RF telemetry module broadcasting real-time battery voltage, current draw, and internal thermals.'
-      ],
-      stack: {
-        hardware: ['Dual High-Power DC Motors', 'Lead-Acid Power Pack', 'Armored Front Shield', 'Optocoupler Isolation'],
-        firmware: ['Arduino / C++', 'RF24 Protocol', 'ADC Calibration', 'PWM Speed Profiling'],
-        sensors: ['Current Sense Resistors', 'Voltage Dividers', 'Thermal Probes']
-      },
-      githubUrl: 'https://github.com/saadrajpoot3355'
-    },
-
-    // ── 03. Cloud-Based Biometric Attendance & IoT Engine ───────────────────
-    {
-      id: '03',
-      type: 'robotics',
-      title: 'Cloud Biometric Attendance Hardware',
-      subtitle: 'Optical Fingerprint Scanner with Real-Time Wi-Fi Cloud Sync',
-      category: 'IoT & Embedded Systems',
-      role: 'Embedded Firmware & IoT Architect',
-      image: '/images/cloud_attendance_robot.webp',
-      description:
-        'An enterprise IoT biometric hardware engine combining optical fingerprint scanning with instant Wi-Fi cloud synchronization, offline template caching, encrypted attendance logging, and live web dashboard integration.',
-      purpose:
-        'Traditional attendance systems suffer from buddy-punching, manual USB data extraction, and failure during network outages, leading to lost employee check-in records in industrial workplaces.',
-      contribution:
-        'Developed end-to-end hardware prototype and firmware: wired the ESP32 to high-speed optical biometric scanner via UART, built circular non-volatile flash memory offline caching, and integrated REST APIs over TLS.',
-      implementation:
-        'Implemented 1:N fingerprint pattern matching directly on sensor DSP with sub-500ms match speed. Designed an automatic failover buffer in ESP32 NVS storing up to 1,000 offline timestamped punch logs that auto-sync upon Wi-Fi reconnect with exponential backoff.',
-      outcomes:
-        'Sub-500ms verification latency, 99.9% data reliability with zero record loss over flaky network links, and seamless sync to cloud management databases.',
-      highlights: 'Sub-500ms Biometric Match & Resilient Offline Buffer Sync',
-      tags: ['IoT Hardware', 'Biometric Auth', 'ESP32 Wi-Fi', 'C/C++', 'REST API', 'OLED UI', 'Security'],
-      icon: ShieldCheck,
-      color: 'from-emerald-600 to-teal-600',
-      metrics: [
-        { label: 'Match Speed', value: '< 500 ms' },
-        { label: 'Offline Log Buffer', value: '1,000+ Records' },
-        { label: 'Cloud Uptime Sync', value: '99.9%' }
-      ],
-      details: [
-        'High-precision optical fingerprint sensor supporting 1:N matching with sub-500ms identification speed.',
-        'Wi-Fi cloud synchronization with automatic reconnection, circular flash offline buffering, and data backfill.',
-        '128x64 I2C OLED display providing immediate visual feedback, clock sync, and employee greeting messages.',
-        'Encrypted JSON payload transmission over HTTPS/REST to backend cloud attendance management databases.'
-      ],
-      stack: {
-        hardware: ['ESP32-WROOM-32', 'Optical Biometric Module', '0.96" I2C OLED', 'Buzzer & Status LEDs'],
-        firmware: ['C/C++', 'Arduino IDE / ESP-IDF', 'UART Protocols', 'HTTPClient / TLS', 'NVS Memory'],
-        cloud: ['RESTful Webhook API', 'PostgreSQL / Firebase', 'Live Web Dashboard']
-      },
-      githubUrl: 'https://github.com/saadrajpoot3355'
-    },
-
-    // ── 04. Expert Painting Services Web Application ────────────────────────
-    {
-      id: '04',
       type: 'web',
       title: 'Expert Painting Services Web Application',
       subtitle: 'High-Converting Multi-Device Service Booking & Estimation Platform',
@@ -206,9 +79,9 @@ export default function Projects() {
       liveUrl: 'https://dubaiwallpaint.com'
     },
 
-    // ── 05. E-Bazzar Electronics & Hardware E-Commerce ──────────────────────
+    // ── 02. E-Bazzar Electronics & Hardware E-Commerce ──────────────────────
     {
-      id: '05',
+      id: '02',
       type: 'web',
       title: 'E-Bazzar Electronics E-Commerce',
       subtitle: 'Hardware Storefront with Parametric Component Filtering & Pinout Cards',
@@ -248,9 +121,9 @@ export default function Projects() {
       liveUrl: 'https://electrobazzar.store'
     },
 
-    // ── 06. PochetRide Vehicle Rental & Fleet Management ────────────────────
+    // ── 03. PochetRide Vehicle Rental & Fleet Management ────────────────────
     {
-      id: '06',
+      id: '03',
       type: 'web',
       title: 'PochetRide Vehicle Rental & Fleet Management',
       subtitle: 'Eco-Friendly Fleet Booking Portal with Location & Date Selectors',
@@ -290,9 +163,9 @@ export default function Projects() {
       liveUrl: 'https://pochetride.com'
     },
 
-    // ── 07. Zameen Experts Executive PA Management System ───────────────────
+    // ── 04. Zameen Experts Executive PA Management System ───────────────────
     {
-      id: '07',
+      id: '04',
       type: 'saas',
       title: 'Zameen Experts Executive PA Management',
       subtitle: 'Enterprise Dashboard with Role-Based Access Control & Schedule Tracking',
@@ -332,9 +205,9 @@ export default function Projects() {
       githubUrl: 'https://github.com/saadrajpoot3355/-PA-Management-System'
     },
 
-    // ── 08. Mtech Pro Stock Inventory & Management Platform ─────────────────
+    // ── 05. Mtech Pro Stock Inventory & Management Platform ─────────────────
     {
-      id: '08',
+      id: '05',
       type: 'saas',
       title: 'Mtech Pro Stock Inventory SaaS',
       subtitle: 'Multi-Warehouse Inventory Tracking with Real-Time Profit Analytics & Exports',
@@ -379,7 +252,6 @@ export default function Projects() {
     activeFilter === 'all'
       ? projects
       : projects.filter((p) => {
-          if (activeFilter === 'robotics') return p.type === 'robotics';
           if (activeFilter === 'web') return p.type === 'web';
           if (activeFilter === 'saas') return p.type === 'saas';
           return true;

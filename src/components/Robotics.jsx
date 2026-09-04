@@ -19,28 +19,163 @@ import {
   CheckCircle2,
   Terminal,
   Zap,
-  Play
+  Play,
+  ShieldCheck
 } from 'lucide-react';
 
 export default function Robotics() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [expandedProject, setExpandedProject] = useState(null);
   const [modalProject, setModalProject] = useState(null);
 
   const categories = [
     { id: 'all', label: 'All Systems' },
-    { id: 'rovers', label: 'Autonomous & Rovers' },
+    { id: 'combat', label: 'Combat & Rovers' },
     { id: 'arms', label: 'Robotic Arms & CV' },
-    { id: 'iot', label: 'Microcontrollers & IoT' },
+    { id: 'iot', label: 'IoT & Biometrics' },
     { id: 'sensors', label: 'Sensors & Signal Processing' }
   ];
 
   const roboticsProjects = [
-    // ── 01. Line Following Robot for Competition ─────────────────────────────
+    // ── 01. Sumo Beast Combat Robot ──────────────────────────────────────────
     {
-      id: 'rob-01',
+      id: 'rob-sumo-beast',
       number: '01',
-      categoryType: 'rovers',
+      categoryType: 'combat',
+      title: 'Sumo Beast Combat Robot',
+      subtitle: 'High-Torque 6WD Autonomous Combat Platform & Custom Wedge Blade',
+      category: 'Combat Robotics & Hardware',
+      tags: ['Autonomous Robotics', '6WD Drivetrain', 'ESP32', 'C/C++', 'Sensor Fusion', 'BTS7960 Drivers'],
+      image: '/images/robot_sumo_beast.webp',
+      objective:
+        'Engineer an unyielding autonomous 6WD combat vehicle with zero boundary-fault rates and maximum pushing power to invert opponent robots in tournament arenas.',
+      description:
+        'A heavyweight autonomous combat robot engineered for competitive sumo wrestling arenas. Built with a custom 6-wheel-drive high-traction chassis, rapid-response dual H-bridge motor drivers, optical sensor fusion for boundary tracking, and reinforced welded front wedge armor designed to invert opponent bots.',
+      keyFunctionality: [
+        'Custom 6-wheel drive layout with high-friction all-terrain silicone tires delivering maximum arena traction.',
+        'Reinforced steel front wedge scoop blade engineered with a 15° attack angle to lift and invert opponents.',
+        'High-current BTS7960 dual H-bridge motor driver stages capable of 43A peak stall current handling.',
+        'Microcontroller control loop executing real-time infrared boundary sensing and ultrasonic target tracking.'
+      ],
+      hardware: [
+        'Custom 6WD High-Traction Mechanical Chassis',
+        '6x High-Torque Precision Metal-Geared DC Motors',
+        'Dual BTS7960 43A High-Current H-Bridge Motor Drivers',
+        'Reinforced 15° Angle Welded Steel Front Wedge Armor',
+        '4S LiPo High-Discharge Power Rail with Optocoupler Isolation'
+      ],
+      firmware: [
+        'ESP32 FreeRTOS Dual-Core Firmware in C++',
+        '100Hz Optical IR Floor Boundary Detection Loop',
+        'Dynamic PWM Brake-and-Reverse Inversion Algorithms (<10ms)',
+        'Ultrasonic Opponent Tracking & Ranging Finite State Machine'
+      ],
+      protocols: ['Hardware PWM Timer Channels', 'Opto-Isolated GPIO Triggers', 'UART Diagnostic Telemetry'],
+      metrics: [
+        { label: 'Drivetrain Torque', value: '18+ kg-cm' },
+        { label: 'Control Loop Latency', value: '< 10 ms' },
+        { label: 'Sensor Sampling', value: '100 Hz' }
+      ],
+      sourceSnippet:
+        '// Dual-core boundary protection & rapid reverse inversion\nvoid boundaryTask(void *pvParameters) {\n  for(;;) {\n    if (digitalRead(PIN_IR_FRONT_LEFT) == WHITE_LINE || digitalRead(PIN_IR_FRONT_RIGHT) == WHITE_LINE) {\n      executeEmergencyBrake();\n      reverseAtMaxTorque(350); // Reverse 350ms\n      pivotAwayFromBorder();\n    }\n    vTaskDelay(pdMS_TO_TICKS(10));\n  }\n}',
+      status: 'Tournament Ready',
+      githubUrl: 'https://github.com/saadrajpoot3355'
+    },
+
+    // ── 02. Simba 2.0 Autonomous Combat & Telemetry Robot ────────────────────
+    {
+      id: 'rob-simba-2',
+      number: '02',
+      categoryType: 'combat',
+      title: 'Simba 2.0 Combat & Telemetry Platform',
+      subtitle: 'Heavy-Duty Dual-Motor Combat Platform with Live RF Telemetry',
+      category: 'Combat Robotics & RF Telemetry',
+      tags: ['Robotics Hardware', 'Motor Drivers', 'Chassis Design', 'Embedded Circuits', 'RF Telemetry', 'Power Electronics'],
+      image: '/images/robot_simba_2_grid.webp',
+      objective:
+        'Eliminate electronic resets and inductive burnouts during heavy stall impacts while broadcasting real-time diagnostics (current, voltage, thermals) to a remote operator.',
+      description:
+        'A tactical dual-motor combat robot hardware build featuring customized reinforced chassis, high-capacity lead-acid power delivery system, multi-layer motor driver bridges, custom front scoop shield, and wireless RF telemetry modules for live system monitoring.',
+      keyFunctionality: [
+        'High-capacity power distribution wiring harness with heavy-duty rechargeable battery and safety master cut-off.',
+        'Custom multi-layer motor driver bridge with active heatsinks and snubbing diodes for inductive spike dampening.',
+        'Dual-chassis shock-absorbing electronic deck isolating microcontrollers from mechanical shocks.',
+        'Real-time RF telemetry module broadcasting real-time battery voltage, current draw, and internal thermals.'
+      ],
+      hardware: [
+        'Dual High-Power DC Motors with Steel Reduction Gearboxes',
+        'Lead-Acid High-Capacity Discharge Power Pack',
+        'Armored Heavy-Gauge Front Impact Shield',
+        'Optocoupler Galvanic Isolation Barrier',
+        'nRF24L01+ 2.4GHz High-Power PA/LNA RF Transceiver'
+      ],
+      firmware: [
+        'Embedded C++ on ATmega328P / Arduino',
+        'RF24 Bidirectional Telemetry Protocol with CRC Checks',
+        'Precision ADC Current Sense & Voltage Calibration',
+        'Differential PWM Speed Profiling and Thermal Throttling'
+      ],
+      protocols: ['2.4GHz RF (nRF24L01+)', 'SPI Bus (Transceiver)', 'Opto-Isolated PWM Gate Controls'],
+      metrics: [
+        { label: 'Peak Current Handling', value: '50A Burst' },
+        { label: 'Telemetry Range', value: '150+ Meters' },
+        { label: 'Chassis Durability', value: 'High Impact' }
+      ],
+      sourceSnippet:
+        'struct TelemetryPacket {\n  float batteryVoltage;\n  float motorCurrent;\n  int internalTemp;\n  uint32_t uptimeMs;\n} telemetryData;\n\nvoid sendDiagnostics() {\n  telemetryData.batteryVoltage = readCalibratedVoltage();\n  telemetryData.motorCurrent = readCurrentSensor();\n  radio.write(&telemetryData, sizeof(telemetryData));\n}',
+      status: 'Active Field Rig',
+      githubUrl: 'https://github.com/saadrajpoot3355'
+    },
+
+    // ── 03. Cloud Biometric Attendance Hardware ─────────────────────────────
+    {
+      id: 'rob-cloud-biometric',
+      number: '03',
+      categoryType: 'iot',
+      title: 'Cloud Biometric Attendance Hardware',
+      subtitle: 'Optical Fingerprint Scanner with Real-Time Wi-Fi Cloud Sync & Offline Flash Cache',
+      category: 'IoT & Embedded Systems',
+      tags: ['IoT Hardware', 'Biometric Auth', 'ESP32 Wi-Fi', 'C/C++', 'REST API', 'OLED UI', 'Security'],
+      image: '/images/cloud_attendance_robot.webp',
+      objective:
+        'Provide instant biometric identification with sub-500ms match latency and zero record loss across intermittent network outages using local non-volatile flash caching.',
+      description:
+        'An enterprise IoT biometric hardware engine combining optical fingerprint scanning with instant Wi-Fi cloud synchronization, offline template caching, encrypted attendance logging, and live web dashboard integration.',
+      keyFunctionality: [
+        'High-precision optical fingerprint sensor supporting 1:N matching with sub-500ms identification speed.',
+        'Wi-Fi cloud synchronization with automatic reconnection, circular flash offline buffering, and data backfill.',
+        '128x64 I2C OLED display providing immediate visual feedback, clock sync, and employee greeting messages.',
+        'Encrypted JSON payload transmission over HTTPS/REST to backend cloud attendance management databases.'
+      ],
+      hardware: [
+        'ESP32-WROOM-32 32-bit Dual-Core Wi-Fi Microcontroller',
+        'Optical Biometric Fingerprint Sensor (DSP Onboard)',
+        '0.96-inch 128x64 I2C Blue/Yellow OLED Display',
+        'Active Piezo Buzzer & Dual Bi-Color Status LEDs',
+        'Regulated 5V/3.3V Step-Down Power Circuitry'
+      ],
+      firmware: [
+        'C/C++ Arduino Core / ESP-IDF',
+        'UART High-Speed Biometric Communication Engine',
+        'NVS Flash Circular Queue Cache for Offline Logs (1,000+ entries)',
+        'HTTPClient with TLS Encryption & Exponential Backoff Reconnect'
+      ],
+      protocols: ['UART (57600 Baud Biometric DSP)', 'I2C (OLED Screen at 400kHz)', 'HTTPS/REST (TLS 1.3)'],
+      metrics: [
+        { label: 'Match Speed', value: '< 500 ms' },
+        { label: 'Offline Log Buffer', value: '1,000+ Records' },
+        { label: 'Cloud Uptime Sync', value: '99.9%' }
+      ],
+      sourceSnippet:
+        'int fingerId = getFingerprintID();\nif (fingerId > 0) {\n  displayGreeting(fingerId);\n  if (WiFi.status() == WL_CONNECTED) {\n    sendAttendanceLog(fingerId, getEpochTime());\n  } else {\n    cacheLogToNVS(fingerId, getEpochTime());\n  }\n}',
+      status: 'Enterprise Deployed',
+      githubUrl: 'https://github.com/saadrajpoot3355'
+    },
+
+    // ── 04. Line Following Robot for Competition ─────────────────────────────
+    {
+      id: 'rob-line-follower',
+      number: '04',
+      categoryType: 'combat',
       title: 'Line Following Robot for Competition',
       subtitle: 'High-Velocity Competition Robot with 8-Sensor IR Array & PID Track Navigation',
       category: 'Autonomous Competition Robotics',
@@ -82,10 +217,10 @@ export default function Robotics() {
       demoUrl: 'https://wokwi.com/projects/445389122581430273'
     },
 
-    // ── 02. Earthquake Project with Door Open System ─────────────────────────
+    // ── 05. Earthquake Project with Door Open System ─────────────────────────
     {
-      id: 'rob-02',
-      number: '02',
+      id: 'rob-earthquake-door',
+      number: '05',
       categoryType: 'sensors',
       title: 'Earthquake Activated Emergency Door Evacuation System',
       subtitle: 'Seismic Vibration Sensing & Automated Ultrasonic Safe-Exit Lock Controller',
@@ -127,10 +262,10 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 03. Robot Arm (4 Servo) ──────────────────────────────────────────────
+    // ── 06. 4-DOF Robotic Arm with WebSockets Controller ────────────────────
     {
-      id: 'rob-03',
-      number: '03',
+      id: 'rob-arm-4dof',
+      number: '06',
       categoryType: 'arms',
       title: '4-DOF Robotic Arm with WebSockets Controller',
       subtitle: 'Wireless HTML5 Touch Interface, Multi-Axis Kinematics & Sequence Recording',
@@ -171,10 +306,10 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 04. Robotics Arm (AI Computer Vision) ─────────────────────────────────
+    // ── 07. AI Computer Vision Hand-Tracking Bionic Arm ──────────────────────
     {
-      id: 'rob-04',
-      number: '04',
+      id: 'rob-arm-computervision',
+      number: '07',
       categoryType: 'arms',
       title: 'AI Computer Vision Hand-Tracking Bionic Arm',
       subtitle: 'Real-Time 21-Keypoint MediaPipe Vision Pipeline & 5-Finger Serial Kinematics',
@@ -214,11 +349,11 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 05. Obstacle Avoiding Robot ──────────────────────────────────────────
+    // ── 08. Autonomous Obstacle Avoiding Rover ───────────────────────────────
     {
-      id: 'rob-05',
-      number: '05',
-      categoryType: 'rovers',
+      id: 'rob-obstacle-avoiding',
+      number: '08',
+      categoryType: 'combat',
       title: 'Autonomous Obstacle Avoiding Rover',
       subtitle: 'Dynamic Pan-Tilt Ultrasonic Ranging & Intelligent Pathfinding Algorithm',
       category: 'Autonomous Mobile Robotics',
@@ -260,10 +395,10 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 06. Radar Project ────────────────────────────────────────────────────
+    // ── 09. Ultrasonic Sonar Radar with Processing GUI ───────────────────────
     {
-      id: 'rob-06',
-      number: '06',
+      id: 'rob-sonar-radar',
+      number: '09',
       categoryType: 'sensors',
       title: 'Ultrasonic Sonar Radar with Processing GUI',
       subtitle: 'Continuous 180° Mechanical Sweep Sonar with Visualized Target Radar Display',
@@ -304,10 +439,10 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 07. Arduino Snake Game ───────────────────────────────────────────────
+    // ── 10. Arduino Retro Snake Game on 8x8 LED Matrix ───────────────────────
     {
-      id: 'rob-07',
-      number: '07',
+      id: 'rob-snake-game',
+      number: '10',
       categoryType: 'iot',
       title: 'Arduino Retro Snake Game on 8x8 LED Matrix',
       subtitle: 'Embedded Arcade Gaming System with Dual-Axis Joystick & MAX7219 Matrix Driver',
@@ -348,10 +483,10 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 08. Arduino/ESP32 Project (sketch_jan6a / ESP32-CAM) ──────────────────
+    // ── 11. ESP32-CAM Video Streaming & Motion Rover (sketch_jan6a) ──────────
     {
-      id: 'rob-08',
-      number: '08',
+      id: 'rob-esp32-cam',
+      number: '11',
       categoryType: 'iot',
       title: 'ESP32-CAM Real-Time Video Streaming & Motion Rover System',
       subtitle: 'Embedded Wireless Video Server, FreeRTOS HTTP Daemon & Pan/Tilt Motor Controls',
@@ -392,10 +527,10 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 09. Ultrasound Scanner Prototype ─────────────────────────────────────
+    // ── 12. Ultrasound Scanner Prototype ─────────────────────────────────────
     {
-      id: 'rob-09',
-      number: '09',
+      id: 'rob-ultrasound-scanner',
+      number: '12',
       categoryType: 'sensors',
       title: 'IoT Ultrasound Range Scanner with Web Dashboard & I2C LCD',
       subtitle: 'ESP8266 Microsecond Acoustic Telemetry, Responsive Web Interface & Physical LCD Feedback',
@@ -436,11 +571,11 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 10. WiFi Controlled ESP8266 Based RC Car ─────────────────────────────
+    // ── 13. WiFi Controlled ESP8266 Based RC Car ─────────────────────────────
     {
-      id: 'rob-10',
-      number: '10',
-      categoryType: 'rovers',
+      id: 'rob-esp8266-rc-car',
+      number: '13',
+      categoryType: 'combat',
       title: 'WiFi Controlled ESP8266 RC Rover Vehicle',
       subtitle: 'Wireless Access Point Rover with Virtual Touchscreen Joystick Teleoperation',
       category: 'Wireless Teleoperation & Vehicles',
@@ -480,10 +615,10 @@ export default function Robotics() {
       githubUrl: 'https://github.com/saadrajpoot3355'
     },
 
-    // ── 11. Traffic Light System ─────────────────────────────────────────────
+    // ── 14. Automated 3-Phase Traffic Intersection Signal Controller ─────────
     {
-      id: 'rob-11',
-      number: '11',
+      id: 'rob-traffic-light',
+      number: '14',
       categoryType: 'sensors',
       title: 'Automated 3-Phase Traffic Intersection Signal Controller',
       subtitle: 'Deterministic State-Machine Timing Controller with Solid-State LED Driver Stages',
@@ -551,7 +686,7 @@ export default function Robotics() {
               Autonomous Systems & Hardware Engineering
             </h2>
             <p className="mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm lg:text-[15px] leading-relaxed text-slate-300">
-              Demonstrated practical experience across 11 physical hardware, microcontroller, robotics, sensor
+              Demonstrated practical experience across 14 physical hardware, combat robotics, microcontroller, sensor
               fusion, and computer vision projects built with Arduino, ESP32, ESP8266, and C/C++.
             </p>
           </div>
@@ -574,18 +709,16 @@ export default function Robotics() {
           </div>
         </div>
 
-        {/* Projects Cards Grid */}
-        <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {/* 2-Column Projects Cards Grid (Desktop/Tablet: 2-Cols, Mobile: 1-Col) */}
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {filteredProjects.map((project) => {
-            const isExpanded = expandedProject === project.id;
-
             return (
               <article
                 key={project.id}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)]"
               >
                 <div>
-                  {/* Card Media Header */}
+                  {/* Top: Card Project Image */}
                   <div className="relative overflow-hidden bg-[#070912] aspect-[16/10] w-full border-b border-white/10">
                     <img
                       src={project.image}
@@ -631,132 +764,38 @@ export default function Robotics() {
                     </div>
                   </div>
 
-                  {/* Card Body */}
-                  <div className="p-5 sm:p-7">
-                    <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors">
+                  {/* Under the image: Title & Short Description */}
+                  <div className="p-5 sm:p-6 pb-2">
+                    <h3 className="font-display text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
                     <p className="mt-1 text-xs sm:text-sm font-medium text-blue-300/90">{project.subtitle}</p>
 
-                    <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">
+                    {/* Short description: 2-3 lines max */}
+                    <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">
                       {project.description}
                     </p>
 
-                    {/* Objective Box */}
-                    <div className="mt-4 rounded-xl bg-white/[0.02] border border-white/5 p-3 text-xs leading-relaxed text-slate-300">
-                      <span className="font-semibold text-blue-300">Engineering Objective: </span>
-                      {project.objective}
-                    </div>
-
-                    {/* Hardware & Tech Tags */}
+                    {/* Technology / Hardware Badges List */}
                     <div className="mt-4 flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
+                      {project.tags.slice(0, 5).map((tag) => (
                         <span key={tag} className="badge text-[10px] sm:text-[11px]">
                           {tag}
                         </span>
                       ))}
                     </div>
-
-                    {/* Expandable Technical Breakdown Specs Area */}
-                    {isExpanded && (
-                      <div className="mt-5 space-y-4 rounded-2xl bg-black/40 border border-white/10 p-4 sm:p-5 text-xs animate-fadeIn">
-                        {/* Key Functionality */}
-                        <div>
-                          <p className="font-display text-[11px] font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
-                            <Activity className="h-3.5 w-3.5" /> Key Functionality
-                          </p>
-                          <ul className="space-y-1.5 text-slate-300">
-                            {project.keyFunctionality.map((item, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <span className="text-blue-400 mt-0.5">•</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Hardware Architecture */}
-                        <div>
-                          <p className="font-display text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
-                            <Cpu className="h-3.5 w-3.5" /> Hardware & Circuit Components
-                          </p>
-                          <ul className="space-y-1.5 text-slate-300">
-                            {project.hardware.map((item, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <span className="text-emerald-400 mt-0.5">•</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Firmware & Control Logic */}
-                        <div>
-                          <p className="font-display text-[11px] font-bold uppercase tracking-wider text-purple-400 mb-2 flex items-center gap-1.5">
-                            <Terminal className="h-3.5 w-3.5" /> Firmware & Control Logic
-                          </p>
-                          <ul className="space-y-1.5 text-slate-300">
-                            {project.firmware.map((item, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <span className="text-purple-400 mt-0.5">•</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Communication Protocols */}
-                        <div>
-                          <p className="font-display text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-2 flex items-center gap-1.5">
-                            <Wifi className="h-3.5 w-3.5" /> Protocols & Buses
-                          </p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {project.protocols.map((p, idx) => (
-                              <span
-                                key={idx}
-                                className="rounded-md bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 text-[10px] font-medium text-amber-300"
-                              >
-                                {p}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Code Snippet */}
-                        {project.sourceSnippet && (
-                          <div className="mt-3">
-                            <p className="font-display text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                              Source Code Excerpt ({project.tags[1] || 'Firmware'})
-                            </p>
-                            <pre className="overflow-x-auto rounded-lg bg-[#05070e] p-3 font-mono text-[11px] text-blue-200 border border-white/5">
-                              <code>{project.sourceSnippet}</code>
-                            </pre>
-                          </div>
-                        )}
-                      </div>
-                    )}
                   </div>
                 </div>
 
-                {/* Card Footer Actions */}
-                <div className="flex flex-wrap items-center justify-between gap-3 p-5 sm:p-7 pt-0 border-t border-white/5 mt-4">
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setModalProject(project)}
-                      className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3.5 py-2 text-xs sm:text-[13px] font-semibold text-white hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all active:scale-[0.98]"
-                    >
-                      <span>More Details</span>
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </button>
-
-                    <button
-                      onClick={() => setExpandedProject(isExpanded ? null : project.id)}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-blue-300 transition-colors px-2 py-2"
-                    >
-                      <span>{isExpanded ? 'Hide Specs' : 'Quick Specs'}</span>
-                      {isExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                    </button>
-                  </div>
+                {/* Bottom of Card: Action Buttons */}
+                <div className="flex flex-wrap items-center justify-between gap-3 p-5 sm:p-6 pt-3 border-t border-white/5 mt-3">
+                  <button
+                    onClick={() => setModalProject(project)}
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-xs sm:text-[13px] font-semibold text-white hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all active:scale-[0.98]"
+                  >
+                    <span>More Details</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </button>
 
                   <div className="flex items-center gap-2">
                     {project.demoUrl && (
@@ -796,9 +835,10 @@ export default function Robotics() {
           role="dialog"
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-fadeIn overflow-y-auto"
+          onClick={() => setModalProject(null)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-3xl border border-white/15 bg-[#0c0e17] p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-3xl rounded-3xl border border-white/15 bg-[#0c0e17] p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Close Button */}
@@ -824,11 +864,11 @@ export default function Robotics() {
             </h2>
             <p className="mt-1 text-sm font-medium text-blue-300">{modalProject.subtitle}</p>
 
-            <div className="mt-5 rounded-2xl overflow-hidden border border-white/10">
+            <div className="mt-5 rounded-2xl overflow-hidden border border-white/10 aspect-[16/9]">
               <img
                 src={modalProject.image}
                 alt={modalProject.title}
-                className="w-full h-auto max-h-[340px] object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
 
@@ -841,6 +881,17 @@ export default function Robotics() {
                 <p className="mt-2 text-blue-300 font-medium">
                   <strong>Engineering Goal: </strong> {modalProject.objective}
                 </p>
+              </div>
+
+              <div>
+                <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white mb-2">
+                  Key Functionality
+                </h3>
+                <ul className="space-y-1.5 list-disc list-inside">
+                  {modalProject.keyFunctionality.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
               </div>
 
               <div>
@@ -864,6 +915,24 @@ export default function Robotics() {
                   ))}
                 </ul>
               </div>
+
+              {modalProject.protocols && (
+                <div>
+                  <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white mb-2">
+                    Communication Protocols & Buses
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {modalProject.protocols.map((protocol, idx) => (
+                      <span
+                        key={idx}
+                        className="rounded-md bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 text-[11px] font-medium text-amber-300"
+                      >
+                        {protocol}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {modalProject.sourceSnippet && (
                 <div>
