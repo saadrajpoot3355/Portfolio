@@ -26,10 +26,12 @@ import {
   Activity,
   Radio,
   Sliders,
-  Play
+  Play,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
-const INITIAL_VISIBLE = 2;
+const INITIAL_VISIBLE = 3;
 
 export default function Projects() {
   const [activePrimaryFilter, setActivePrimaryFilter] = useState('all');
@@ -846,9 +848,11 @@ export default function Projects() {
             <strong className="text-white">{allProjects.length}</strong> total projects
           </span>
           <span className="hidden sm:inline text-[11px] text-slate-300">
-            2-Column Responsive Portfolio Grid
+            3-Column Responsive Portfolio Grid
           </span>
         </div>
+
+        <div id="projects-grid-start" className="scroll-mt-24"></div>
 
         {(() => {
           const isFiltered = activePrimaryFilter !== 'all' || activeSubFilter !== 'all';
@@ -858,112 +862,129 @@ export default function Projects() {
           const hasMore = !isFiltered && filteredProjects.length > INITIAL_VISIBLE;
           return (
             <>
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                {visibleProjects.map((project) => (
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+                {visibleProjects.map((project, idx) => (
                   <article
-              key={project.id}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)]"
-            >
-              <div>
-                <div className="relative overflow-hidden bg-[#070912] aspect-[16/10] w-full border-b border-white/10">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    width="600"
-                    height="375"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c0e17] via-transparent to-black/40"></div>
-                  <div className="absolute top-3 left-3 z-10 flex items-center gap-2">
-                    <span className="rounded-full bg-black/60 border border-white/20 px-2.5 py-0.5 font-display text-[11px] font-bold text-white backdrop-blur">
-                      #{project.number}
-                    </span>
-                    <span className="rounded-full bg-blue-600/80 border border-blue-400/30 px-2.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur">
-                      {project.category}
-                    </span>
-                  </div>
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 text-[10px] font-medium text-emerald-300 backdrop-blur">
-                      <CheckCircle2 className="h-3 w-3 text-emerald-400" />
-                      {project.status}
-                    </span>
-                  </div>
-                  {project.metrics && (
-                    <div className="absolute bottom-3 inset-x-3 z-10 grid grid-cols-3 gap-1.5 rounded-xl bg-black/60 border border-white/10 p-2 backdrop-blur-md">
-                      {project.metrics.map((m, idx) => (
-                        <div key={idx} className="text-center">
-                          <p className="font-display text-[11px] sm:text-xs font-bold text-white truncate">{m.value}</p>
-                          <p className="text-[9px] sm:text-[10px] text-slate-300 truncate">{m.label}</p>
+                    key={project.id}
+                    className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)] h-full ${
+                      !isFiltered && showAllProjects && idx >= INITIAL_VISIBLE ? 'animate-fadeIn' : ''
+                    }`}
+                  >
+                    <div className="flex-1 flex flex-col">
+                      <div className="relative overflow-hidden bg-[#070912] aspect-[16/10] w-full border-b border-white/10">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          loading="lazy"
+                          decoding="async"
+                          width="600"
+                          height="375"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c0e17] via-transparent to-black/40"></div>
+                        <div className="absolute top-3 left-3 z-10 flex items-center gap-2">
+                          <span className="rounded-full bg-black/60 border border-white/20 px-2.5 py-0.5 font-display text-[11px] font-bold text-white backdrop-blur">
+                            #{project.number}
+                          </span>
+                          <span className="rounded-full bg-blue-600/80 border border-blue-400/30 px-2.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur">
+                            {project.category}
+                          </span>
                         </div>
-                      ))}
+                        <div className="absolute top-3 right-3 z-10">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 text-[10px] font-medium text-emerald-300 backdrop-blur">
+                            <CheckCircle2 className="h-3 w-3 text-emerald-400" />
+                            {project.status}
+                          </span>
+                        </div>
+                        {project.metrics && (
+                          <div className="absolute bottom-3 inset-x-3 z-10 grid grid-cols-3 gap-1.5 rounded-xl bg-black/60 border border-white/10 p-2 backdrop-blur-md">
+                            {project.metrics.map((m, mIdx) => (
+                              <div key={mIdx} className="text-center">
+                                <p className="font-display text-[11px] sm:text-xs font-bold text-white truncate">{m.value}</p>
+                                <p className="text-[9px] sm:text-[10px] text-slate-300 truncate">{m.label}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-5 sm:p-6 pb-2 flex-1 flex flex-col">
+                        <h3 className="font-display text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="mt-1 text-xs sm:text-sm font-medium text-blue-300/90">{project.subtitle}</p>
+                        <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">{project.description}</p>
+                        <div className="mt-auto pt-4 flex flex-wrap gap-1.5">
+                          {project.tags.slice(0, 5).map((tag) => (
+                            <span key={tag} className="badge text-[10px] sm:text-[11px]">{tag}</span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  )}
-                </div>
-                <div className="p-5 sm:p-6 pb-2">
-                  <h3 className="font-display text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="mt-1 text-xs sm:text-sm font-medium text-blue-300/90">{project.subtitle}</p>
-                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">{project.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 5).map((tag) => (
-                      <span key={tag} className="badge text-[10px] sm:text-[11px]">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-wrap items-center justify-between gap-3 p-5 sm:p-6 pt-3 border-t border-white/5 mt-3">
-                <button
-                  onClick={() => setModalProject(project)}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-xs sm:text-[13px] font-semibold text-white hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all active:scale-[0.98]"
-                >
-                  <span>More Details</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </button>
-                <div className="flex items-center gap-2">
-                  {project.liveUrl && (
-                    <a href={project.liveUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-3 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
-                      <Globe className="h-3 w-3 text-emerald-400" />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
-                  {project.demoUrl && (
-                    <a href={project.demoUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-3 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
-                      <ExternalLink className="h-3 w-3" />
-                      <span>Simulation</span>
-                    </a>
-                  )}
-                  {project.githubUrl && (
-                    <a href={project.githubUrl} target="_blank" rel="noreferrer noopener" aria-label={`${project.title} Source Code`} className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-white/15 text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
-                      <Github className="h-4 w-4" />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </article>
+                    <div className="flex flex-wrap items-center justify-between gap-2.5 p-5 sm:p-6 pt-3 border-t border-white/5 mt-auto">
+                      <button
+                        onClick={() => setModalProject(project)}
+                        className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3.5 py-2 text-xs sm:text-[13px] font-semibold text-white hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all active:scale-[0.98]"
+                      >
+                        <span>More Details</span>
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </button>
+                      <div className="flex items-center gap-1.5">
+                        {project.liveUrl && (
+                          <a href={project.liveUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-2.5 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
+                            <Globe className="h-3 w-3 text-emerald-400" />
+                            <span>Demo</span>
+                          </a>
+                        )}
+                        {project.demoUrl && (
+                          <a href={project.demoUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-2.5 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
+                            <ExternalLink className="h-3 w-3" />
+                            <span>Simulation</span>
+                          </a>
+                        )}
+                        {project.githubUrl && (
+                          <a href={project.githubUrl} target="_blank" rel="noreferrer noopener" aria-label={`${project.title} Source Code`} className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-white/15 text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+                            <Github className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </article>
                 ))}
               </div>
               {hasMore && (
-                <div className="mt-8 flex justify-center">
+                <div className="mt-10 sm:mt-12 flex flex-col items-center justify-center gap-3">
                   <button
-                    onClick={() => setShowAllProjects((v) => !v)}
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-[13px] font-semibold text-slate-300 hover:border-blue-500/40 hover:bg-blue-600/10 hover:text-white transition-all duration-200 backdrop-blur"
+                    onClick={() => {
+                      if (showAllProjects) {
+                        const el = document.getElementById('projects-grid-start');
+                        if (el) {
+                          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }
+                      setShowAllProjects((v) => !v);
+                    }}
+                    className="group relative inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-xs sm:text-[13px] font-semibold text-slate-200 shadow-lg shadow-black/40 backdrop-blur-md transition-all duration-300 hover:border-blue-500/50 hover:bg-blue-600/15 hover:text-white hover:shadow-blue-500/15 active:scale-[0.98]"
                   >
                     {showAllProjects ? (
                       <>
-                        <span>See Less</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                        <span>See Less Projects</span>
+                        <ChevronUp className="h-4 w-4 text-blue-400 transition-transform duration-300 group-hover:-translate-y-0.5" />
                       </>
                     ) : (
                       <>
-                        <span>See More</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                        <span className="rounded-full bg-blue-600/20 border border-blue-500/30 px-2 py-0.5 text-[10px] font-bold text-blue-300">{filteredProjects.length - INITIAL_VISIBLE} more</span>
+                        <span>See More Projects</span>
+                        <span className="rounded-full bg-blue-600/25 border border-blue-400/30 px-2 py-0.5 text-[10px] font-bold text-blue-300">
+                          +{filteredProjects.length - INITIAL_VISIBLE} more
+                        </span>
+                        <ChevronDown className="h-4 w-4 text-blue-400 transition-transform duration-300 group-hover:translate-y-0.5" />
                       </>
                     )}
                   </button>
+                  <p className="text-[11px] text-slate-400 tracking-wide font-medium">
+                    {showAllProjects
+                      ? `Showing all ${filteredProjects.length} engineering projects`
+                      : `Showing ${INITIAL_VISIBLE} of ${filteredProjects.length} engineering projects`}
+                  </p>
                 </div>
               )}
             </>
