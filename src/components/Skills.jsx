@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Cpu, Code, Layers, FileSpreadsheet, Bot, Wrench, Shield, Zap } from 'lucide-react';
 
+const INITIAL_SKILLS = 3;
+
 export default function Skills() {
+  const [showAllSkills, setShowAllSkills] = useState(false);
+
   const skillCategories = [
     {
       title: 'Robotics & Hardware Design',
@@ -78,6 +82,9 @@ export default function Skills() {
     }
   ];
 
+  const visibleCategories = showAllSkills ? skillCategories : skillCategories.slice(0, INITIAL_SKILLS);
+  const hasMore = skillCategories.length > INITIAL_SKILLS;
+
   return (
     <section id="skills" className="border-b border-white/10 bg-[#0a0c14] py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -93,7 +100,7 @@ export default function Skills() {
         </div>
 
         <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.map((category) => {
+          {visibleCategories.map((category) => {
             const Icon = category.icon;
             return (
               <div 
@@ -120,6 +127,28 @@ export default function Skills() {
             );
           })}
         </div>
+
+        {hasMore && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setShowAllSkills((v) => !v)}
+              className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-[13px] font-semibold text-slate-300 hover:border-blue-500/40 hover:bg-blue-600/10 hover:text-white transition-all duration-200 backdrop-blur"
+            >
+              {showAllSkills ? (
+                <>
+                  <span>See Less</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                </>
+              ) : (
+                <>
+                  <span>See More</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  <span className="rounded-full bg-blue-600/20 border border-blue-500/30 px-2 py-0.5 text-[10px] font-bold text-blue-300">{skillCategories.length - INITIAL_SKILLS} more</span>
+                </>
+              )}
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

@@ -29,10 +29,13 @@ import {
   Play
 } from 'lucide-react';
 
+const INITIAL_VISIBLE = 2;
+
 export default function Projects() {
   const [activePrimaryFilter, setActivePrimaryFilter] = useState('all');
   const [activeSubFilter, setActiveSubFilter] = useState('all');
   const [modalProject, setModalProject] = useState(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const primaryTabs = [
     { id: 'all', label: 'All Projects', count: 19 },
@@ -847,9 +850,17 @@ export default function Projects() {
           </span>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {filteredProjects.map((project) => (
-            <article
+        {(() => {
+          const isFiltered = activePrimaryFilter !== 'all' || activeSubFilter !== 'all';
+          const visibleProjects = (!isFiltered && !showAllProjects)
+            ? filteredProjects.slice(0, INITIAL_VISIBLE)
+            : filteredProjects;
+          const hasMore = !isFiltered && filteredProjects.length > INITIAL_VISIBLE;
+          return (
+            <>
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                {visibleProjects.map((project) => (
+                  <article
               key={project.id}
               className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)]"
             >
@@ -932,8 +943,32 @@ export default function Projects() {
                 </div>
               </div>
             </article>
-          ))}
-        </div>
+                ))}
+              </div>
+              {hasMore && (
+                <div className="mt-8 flex justify-center">
+                  <button
+                    onClick={() => setShowAllProjects((v) => !v)}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-5 py-2.5 text-xs sm:text-[13px] font-semibold text-slate-300 hover:border-blue-500/40 hover:bg-blue-600/10 hover:text-white transition-all duration-200 backdrop-blur"
+                  >
+                    {showAllProjects ? (
+                      <>
+                        <span>See Less</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                      </>
+                    ) : (
+                      <>
+                        <span>See More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <span className="rounded-full bg-blue-600/20 border border-blue-500/30 px-2 py-0.5 text-[10px] font-bold text-blue-300">{filteredProjects.length - INITIAL_VISIBLE} more</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              )}
+            </>
+          );
+        })()}
       </div>
       {modalProject && (
         <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-fadeIn overflow-y-auto" onClick={() => setModalProject(null)}>
