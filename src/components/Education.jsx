@@ -64,7 +64,7 @@ export default function Education() {
             </h3>
 
             {visibleEdu.map((edu, idx) => (
-              <div key={idx} className="rounded-2xl border border-white/10 bg-[#0c0e17] p-5 sm:p-6 transition-all hover:border-white/25">
+              <div key={idx} className="rounded-2xl border border-white/10 bg-[#0c0e17] p-4 sm:p-6 transition-all hover:border-white/25">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
                   <h4 className="font-display font-bold text-white text-base sm:text-lg">{edu.degree}</h4>
                   <span className="w-fit rounded-full bg-blue-500/10 border border-blue-500/20 px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold text-blue-400">
@@ -114,7 +114,7 @@ export default function Education() {
               <Award className="h-5 w-5 text-blue-400 shrink-0" /> Certifications & Specializations
             </h3>
 
-            <div className="rounded-2xl border border-white/10 bg-[#0c0e17] p-5 sm:p-7 lg:p-8 space-y-4">
+            <div className="rounded-2xl border border-white/10 bg-[#0c0e17] p-4 sm:p-6 lg:p-8 space-y-4">
               <p className="text-xs sm:text-sm leading-relaxed text-slate-300">
                 Formal training and industry-recognized specialist credentials earned in Microsoft productivity, robotics microcontrollers, and modern web frameworks:
               </p>

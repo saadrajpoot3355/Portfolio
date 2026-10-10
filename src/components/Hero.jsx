@@ -69,7 +69,7 @@ export default function Hero() {
             <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl text-slate-400">
               Hi i'm
             </span>
-            <span className="mt-1.5 text-[5.2vw] sm:text-5xl md:text-6xl lg:text-7xl text-white whitespace-nowrap tracking-tight">
+            <span className="mt-1.5 text-[5vw] xs:text-[5.2vw] sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tight break-words sm:whitespace-nowrap max-w-full">
               Muhammad Saad Atique
             </span>
           </div>

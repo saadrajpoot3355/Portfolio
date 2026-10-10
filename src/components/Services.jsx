@@ -58,7 +58,7 @@ export default function Services() {
             return (
               <div
                 key={service.title}
-                className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] p-5 sm:p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-2xl hover:shadow-blue-600/10"
+                className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-2xl hover:shadow-blue-600/10"
               >
                 <div>
                   <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/30">

@@ -28,6 +28,11 @@
   body.mobile-menu-active {
     overflow: hidden;
   }
+
+  /* Ensure media elements never exceed container width */
+  img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+  }
 }
 
 /* Section Eyebrow Styling matching Reference Site */

@@ -105,7 +105,7 @@ export default function Skills() {
             return (
               <div 
                 key={category.title}
-                className="h-full rounded-2xl border border-white/10 bg-[#0c0e17] p-5 sm:p-6 transition-all duration-300 hover:border-white/25 hover:shadow-xl hover:shadow-blue-600/5"
+                className="h-full rounded-2xl border border-white/10 bg-[#0c0e17] p-4 sm:p-6 transition-all duration-300 hover:border-white/25 hover:shadow-xl hover:shadow-blue-600/5"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400">

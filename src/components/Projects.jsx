@@ -862,90 +862,88 @@ export default function Projects() {
           const hasMore = !isFiltered && filteredProjects.length > INITIAL_VISIBLE;
           return (
             <>
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
+              <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 w-full min-w-0">
                 {visibleProjects.map((project, idx) => (
                   <article
                     key={project.id}
-                    className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)] h-full ${
+                    className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0e17] transition-all duration-300 hover:border-blue-500/40 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.25)] w-full min-w-0 max-w-md mx-auto md:max-w-none h-full ${
                       !isFiltered && showAllProjects && idx >= INITIAL_VISIBLE ? 'animate-fadeIn' : ''
                     }`}
                   >
                     <div className="flex-1 flex flex-col">
-                      <div className="relative overflow-hidden bg-[#070912] w-full aspect-[16/10] border-b border-white/10 flex items-center justify-center">
+                      <div className="relative overflow-hidden bg-[#070912] w-full aspect-[16/10] max-h-56 sm:max-h-none border-b border-white/10 flex items-center justify-center">
                         <img
                           src={project.image}
                           alt={project.title}
                           loading="lazy"
                           decoding="async"
-                          width="600"
-                          height="375"
                           className="h-full w-full object-cover object-top sm:object-center transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c0e17]/85 via-transparent to-black/25"></div>
-                        <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 sm:gap-2 max-w-[70%]">
-                          <span className="rounded-full bg-black/70 border border-white/20 px-2 sm:px-2.5 py-0.5 font-display text-[10px] sm:text-[11px] font-bold text-white backdrop-blur shrink-0">
+                        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 sm:gap-2 max-w-[70%]">
+                          <span className="rounded-full bg-black/75 border border-white/20 px-2 sm:px-2.5 py-0.5 font-display text-[10px] sm:text-[11px] font-bold text-white backdrop-blur shrink-0">
                             #{project.number}
                           </span>
                           <span className="rounded-full bg-blue-600/90 border border-blue-400/30 px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-semibold text-white backdrop-blur truncate">
                             {project.category}
                           </span>
                         </div>
-                        <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
+                        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10">
                           <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-medium text-emerald-300 backdrop-blur">
                             <CheckCircle2 className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-emerald-400" />
                             {project.status}
                           </span>
                         </div>
                         {project.metrics && (
-                          <div className="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 z-10 grid grid-cols-3 gap-1 sm:gap-1.5 rounded-xl bg-black/75 border border-white/10 p-1.5 sm:p-2 backdrop-blur-md">
+                          <div className="absolute bottom-2 inset-x-2 sm:bottom-2.5 sm:inset-x-2.5 z-10 grid grid-cols-3 gap-1 rounded-xl bg-black/80 border border-white/10 p-1 sm:p-1.5 backdrop-blur-md">
                             {project.metrics.map((m, mIdx) => (
-                              <div key={mIdx} className="text-center px-0.5">
-                                <p className="font-display text-[10px] sm:text-xs font-bold text-white truncate">{m.value}</p>
+                              <div key={mIdx} className="text-center px-0.5 overflow-hidden">
+                                <p className="font-display text-[9px] sm:text-xs font-bold text-white truncate">{m.value}</p>
                                 <p className="text-[8px] sm:text-[10px] text-slate-300 truncate">{m.label}</p>
                               </div>
                             ))}
                           </div>
                         )}
                       </div>
-                      <div className="p-4 sm:p-5 lg:p-6 pb-2 flex-1 flex flex-col justify-between">
+                      <div className="p-3.5 sm:p-5 lg:p-6 pb-2 flex-1 flex flex-col justify-between">
                         <div>
-                          <h3 className="font-display text-base sm:text-lg lg:text-xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors">
+                          <h3 className="font-display text-base sm:text-lg lg:text-xl font-black text-white tracking-tight group-hover:text-blue-400 transition-colors line-clamp-2">
                             {project.title}
                           </h3>
-                          <p className="mt-1 text-xs sm:text-sm font-medium text-blue-300/90">{project.subtitle}</p>
-                          <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">{project.description}</p>
+                          <p className="mt-1 text-xs sm:text-sm font-medium text-blue-300/90 line-clamp-1">{project.subtitle}</p>
+                          <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">{project.description}</p>
                         </div>
-                        <div className="mt-3 sm:mt-4 pt-2 flex flex-wrap gap-1.5">
+                        <div className="mt-3 sm:mt-4 pt-1 flex flex-wrap gap-1.5">
                           {project.tags.slice(0, 5).map((tag) => (
-                            <span key={tag} className="badge text-[10px] sm:text-[11px] px-2 py-0.5 sm:px-2.5 sm:py-1">{tag}</span>
+                            <span key={tag} className="badge text-[10px] sm:text-[11px] px-2 py-0.5">{tag}</span>
                           ))}
                         </div>
                       </div>
                     </div>
-                    <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-2.5 p-4 sm:p-5 lg:p-6 pt-3 border-t border-white/5 mt-auto">
+                    <div className="flex flex-wrap items-center justify-between gap-2 p-3.5 sm:p-5 lg:p-6 pt-3 border-t border-white/5 mt-auto">
                       <button
                         onClick={() => setModalProject(project)}
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3 sm:px-3.5 py-2 text-xs sm:text-[13px] font-semibold text-white hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all active:scale-[0.98] shrink-0"
+                        className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-[13px] font-semibold text-white hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-all active:scale-[0.98]"
                       >
                         <span>More Details</span>
                         <ArrowUpRight className="h-3.5 w-3.5" />
                       </button>
-                      <div className="flex items-center gap-1.5 shrink-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
                         {project.liveUrl && (
-                          <a href={project.liveUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-2.5 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
+                          <a href={project.liveUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
                             <Globe className="h-3 w-3 text-emerald-400" />
                             <span>Demo</span>
                           </a>
                         )}
                         {project.demoUrl && (
-                          <a href={project.demoUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-2.5 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
+                          <a href={project.demoUrl} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-1 rounded-xl bg-emerald-600/20 border border-emerald-500/30 px-2 sm:px-2.5 py-1 sm:py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-600/30 transition-colors">
                             <ExternalLink className="h-3 w-3" />
                             <span>Simulation</span>
                           </a>
                         )}
                         {project.githubUrl && (
-                          <a href={project.githubUrl} target="_blank" rel="noreferrer noopener" aria-label={`${project.title} Source Code`} className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-white/15 text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
-                            <Github className="h-4 w-4" />
+                          <a href={project.githubUrl} target="_blank" rel="noreferrer noopener" aria-label={`${project.title} Source Code`} className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl border border-white/15 text-slate-300 hover:bg-white/10 hover:text-white transition-colors shrink-0">
+                            <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                           </a>
                         )}
                       </div>
@@ -994,8 +992,8 @@ export default function Projects() {
         })()}
       </div>
       {modalProject && (
-        <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-fadeIn overflow-y-auto" onClick={() => setModalProject(null)}>
-          <div className="relative w-full max-w-3xl rounded-3xl border border-white/15 bg-[#0c0e17] p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto my-auto" onClick={(e) => e.stopPropagation()}>
+        <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-fadeIn overflow-y-auto" onClick={() => setModalProject(null)}>
+          <div className="relative w-full max-w-3xl rounded-2xl sm:rounded-3xl border border-white/15 bg-[#0c0e17] p-4 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto my-auto" onClick={(e) => e.stopPropagation()}>
             <button onClick={() => setModalProject(null)} aria-label="Close Case Study" className="absolute top-5 right-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
               <X className="h-5 w-5" />
             </button>

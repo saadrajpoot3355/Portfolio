@@ -75,7 +75,7 @@ export default function Experience() {
                 className="absolute -left-[27px] sm:-left-[39px] lg:-left-[47px] top-2 h-3.5 w-3.5 rounded-full border-2 border-[#080a11] bg-blue-500 group-hover:scale-125 group-hover:bg-white transition-all duration-300 shadow-md shadow-blue-500/50"
               ></span>
 
-              <div className="rounded-2xl border border-white/10 bg-[#0c0e17] p-5 sm:p-7 lg:p-8 transition-colors hover:border-white/25">
+              <div className="rounded-2xl border border-white/10 bg-[#0c0e17] p-4 sm:p-6 lg:p-8 transition-colors hover:border-white/25">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <h3 className="font-display text-base sm:text-lg lg:text-xl font-bold uppercase tracking-tight text-white flex flex-wrap items-center gap-1.5 sm:gap-2">
                     <span>{exp.title}</span>
